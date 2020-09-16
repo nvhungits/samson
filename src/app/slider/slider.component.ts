@@ -1,0 +1,25 @@
+import { Component, OnInit } from '@angular/core';
+import { DomSanitizer} from '@angular/platform-browser';
+import { SLIDERS } from './mock-slider'
+
+@Component({
+  selector: '[app-slider]',
+  templateUrl: './slider.component.html',
+  styleUrls: ['./slider.component.css']
+})
+export class SliderComponent implements OnInit {
+
+  settings = {
+    transition: "fade",
+    slotamount: 8,
+    masterspeed: 700,
+    delay: 9400,
+    thumb: "//../../assets/frontend/pages/img/revolutionslider/thumbs/thumb2.jpg"
+  }
+  sliders = SLIDERS
+  constructor(private sanitizer: DomSanitizer) { }
+
+  ngOnInit(): void {
+  }
+
+}

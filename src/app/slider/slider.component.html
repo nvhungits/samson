@@ -1,0 +1,56 @@
+<div class="fullwidthbanner-container revolution-slider">
+  <div class="fullwidthabnner">
+    <ul id="revolutionul">
+      <li *ngFor="let slider of sliders"
+        [attr.data-transition]="settings.transition"
+        [attr.data-slotamount]="settings.slotamount"
+        [attr.data-masterspeed]="settings.masterspeed"
+        [attr.data-delay]="settings.delay"
+        [attr.data-thumb]="settings.thumb" >
+
+        <img [src]="slider.bg" alt="" *ngIf="slider.bg" />
+
+        <!-- Texts-->
+        <div *ngFor="let text of slider.texts"
+          class="caption {{text.className}}"
+          [attr.data-x]="text.x"
+          [attr.data-y]="text.y"
+          [attr.data-speed]="text.speed"
+          [attr.data-start]="text.start"
+          [attr.data-easing]="text.easing"
+          [innerHTML]="text.text">
+        </div>
+
+        <!-- Images -->
+        <div *ngFor="let image of slider.images"
+          class="caption {{image.className}}"
+          [attr.data-x]="image.x"
+          [attr.data-y]="image.y"
+          [attr.data-speed]="image.speed"
+          [attr.data-start]="image.start"
+          [attr.data-easing]="image.easing">
+            <img [src]="image.img" alt="Image 1" *ngIf="image.img" />
+            <iframe 
+              [src]="sanitizer.bypassSecurityTrustResourceUrl(image.iframe)" 
+              [width]="image.iframeWidth" [height]="image.iframeHeight" [style]="image.iframeStyle" 
+              allowFullScreen *ngIf="image.iframe">
+            </iframe> 
+        </div>
+
+        <!-- BUTTONs -->
+        <a *ngFor="let button of slider.buttons"
+          class="caption {{button.className}}" 
+          href="#"
+          [attr.data-x]="button.x"
+          [attr.data-y]="button.y"
+          [attr.data-speed]="button.speed"
+          [attr.data-start]="button.start"
+          [attr.data-easing]="button.easing">
+            {{button.value}}
+        </a>
+
+      </li>
+    </ul>
+    <div class="tp-bannertimer tp-bottom"></div>
+  </div>
+</div>
