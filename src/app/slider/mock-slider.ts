@@ -137,8 +137,7 @@ export const SLIDERS = [
         x: 30, y: 95, speed: 400, start: 1500, easing: "easeOutBack",
         className: "lfl slide_item_left",
         img: "", textImg: "",
-        iframe: "https://player.vimeo.com/video/271319340?portrait=0",
-        //http://player.vimeo.com/video/56974716?portrait=0
+        iframe: "https://www.youtube.com/embed/ANkaI2FCogU",
         iframeWidth: 420, iframeHeight: 240,
         iframeStyle: "border:0"
       }

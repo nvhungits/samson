@@ -30,11 +30,10 @@
           [attr.data-start]="image.start"
           [attr.data-easing]="image.easing">
             <img [src]="image.img" alt="Image 1" *ngIf="image.img" />
-            <iframe 
-              [src]="sanitizer.bypassSecurityTrustResourceUrl(image.iframe)" 
-              [width]="image.iframeWidth" [height]="image.iframeHeight" [style]="image.iframeStyle" 
-              allowFullScreen *ngIf="image.iframe">
-            </iframe> 
+            <iframe [width]="image.iframeWidth" [height]="image.iframeHeight" 
+              *ngIf="image.iframe" [style]="image.iframeStyle"
+              [src]="sanitizer.bypassSecurityTrustResourceUrl(image.iframe)" frameborder="0" allowfullscreen>
+            </iframe>
         </div>
 
         <!-- BUTTONs -->

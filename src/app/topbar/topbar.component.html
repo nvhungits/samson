@@ -2,9 +2,9 @@
     <div class="row">
         <!-- BEGIN TOP BAR LEFT PART -->
         <div class="col-md-6 col-sm-6 additional-shop-info">
-            <ul class="list-unstyled list-inline">
-                <li><i class="fa fa-phone"></i><span>{{company.phone}}</span></li>
-                <li><i class="fa fa-envelope-o"></i><span>{{company.email}}</span></li>
+            <ul class="list-unstyled list-inline" *ngIf="companyDB">
+                <li><i class="fa fa-phone"></i><span>{{companyDB.phone}}</span></li>
+                <li><i class="fa fa-envelope-o"></i><span>{{companyDB.email}}</span></li>
             </ul>
         </div>
         <!-- END TOP BAR LEFT PART -->
