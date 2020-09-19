@@ -1,3 +1,3 @@
 export const environment = {
-    appUrl: 'http://localhost'
+    appUrl: 'https://bcmedia.vn'
 };

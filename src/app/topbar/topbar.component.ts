@@ -15,17 +15,19 @@ export class TopbarComponent implements OnInit {
   constructor(private companyService: CompanyService) { }
 
   ngOnInit(): void {
-    console.log("--- TOP BAR INIT --- ")
-
+    console.log("--- TOP BAR INIT --- ");
     this.companyService.getAll().subscribe(
-      (res: Company[]) => {
-        this.companyDB = res;
-        console.log(this.companyDB);
+      (res: Company) => {
+        this.companyDB = res[0];
+        console.log("Company", this.companyDB);
       },
       (err) => {
         console.log("ERROR", err);
       }
     );
+  }
+
+  ngAfterViewInit(){
   }
 
 }

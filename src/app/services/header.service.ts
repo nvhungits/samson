@@ -2,22 +2,22 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-import { Company } from './company';
+import { Menu } from './menu';
 import { environment } from './config';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CompanyService {
+export class HeaderService {
 
   constructor(private http: HttpClient) { }
-  companies: Company[];
+  menues: Menu[];
 
   getAll(): Observable<any> {
-    return this.http.get(environment.appUrl + "/api/company.php").pipe(
+    return this.http.get(environment.appUrl + "/api/menu.php").pipe(
       map((res) => {
-        this.companies = res['data'];
-        return this.companies;
+        this.menues = res['data'];
+        return this.menues;
     }),
     catchError(this.handleError));
   }

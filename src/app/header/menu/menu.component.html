@@ -1,7 +1,7 @@
 <li class="dropdown-submenu" *ngFor="let submenu of menu">
     <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
         {{submenu.name}}
-        <i class="fa fa-angle-right" *ngIf="submenu.menus"></i>
+        <i class="fa fa-angle-right" *ngIf="submenu.menus && submenu.menus.length > 0"></i>
     </a>
-    <ul app-menu [menu]="submenu.menus" class="dropdown-menu" role="menu" *ngIf="submenu.menus"></ul>
+    <ul app-menu [menu]="submenu.menus" class="dropdown-menu" role="menu" *ngIf="submenu.menus && submenu.menus.length > 0"></ul>
 </li>
