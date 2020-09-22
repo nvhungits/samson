@@ -18,14 +18,13 @@ export class HeaderComponent implements OnInit {
     console.log("--- HEADER INIT --- ");
     this.headerService.getAll().subscribe(
       (res: Menu[]) => {
-        console.log("Menus", res);
         res.forEach(menu => {
           if(menu.parent == 0){
             menu.menus = this.getSubmenu(menu, res);
             this.menusDB.push(menu);
           }
         });
-        console.log(this.menusDB);
+        console.log("Menus", this.menusDB);
       },
       (err) => {
         console.log("ERROR", err);

@@ -1,0 +1,104 @@
+<div class="main">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a href="#">Trang chủ</a></li>
+            <li class="active">Cài đặt</li>
+        </ul>
+        <div class="row margin-bottom-20">
+            <!-- BEGIN CONTENT -->
+            <div class="col-md-12 col-sm-12">
+                <h1>Cặt đặt</h1>
+                <div class="content-page">
+                    <div class="content-page">
+                        <div class="note note-success">
+                            <h4 class="block">Trang quản lý</h4>
+                            <ul>
+                                <li>
+                                    Thông tin Công Ty
+                                </li>
+                                <li>
+                                    Menus
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="row ">
+                            <div class="col-md-12">
+                                <!-- BEGIN SAMPLE FORM PORTLET-->
+                                <div class="portlet box blue">
+                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            <i class="fa fa-home"></i>Thôn tin công ty
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body" *ngIf="companyDB">
+                                        <form class="form-horizontal" #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+                                            <div class="form-group">
+                                                <label for="inputEmail1" class="col-md-2 control-label">
+                                                    Email
+                                                </label>
+                                                <div class="col-md-4">
+                                                    <input type="email" name="email" required
+                                                        class="form-control" [(ngModel)]="companyDB.email"
+                                                        placeholder="Nhập Email" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputPassword12" class="col-md-2 control-label">
+                                                    Số điện thoại
+                                                </label>
+                                                <div class="col-md-4">
+                                                    <input name="phone" [(ngModel)]="companyDB.phone"
+                                                        class="form-control" required
+                                                        placeholder="Nhập Số điện thoại" />
+                                                </div>
+                                            </div>
+                                            <!-- <div class="form-group">
+                                                <div class="col-md-offset-2 col-md-10">
+                                                    <button type="submit" class="btn blue">Lưu</button>
+                                                </div>
+                                            </div> -->
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- END SAMPLE FORM PORTLET-->
+
+                                <!-- BEGIN SAMPLE FORM PORTLET-->
+                                <div class="portlet box yellow">
+                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            <i class="fa fa-home"></i>Danh sách menu
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body" *ngIf="menusDB">
+                                        <form class="form-horizontal" #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate *ngIf="companyDB">
+                                            <table class="table table-hover">
+                                                <thead>
+                                                    <th>#</th>
+                                                    <th>Name</th>
+                                                </thead>
+                                                <tbody>
+                                                    <tr *ngFor="let menu of menusDB">
+                                                        <td>{{menu.id}}</td>
+                                                        <td>{{menu.name}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <!-- <div class="form-group">
+                                                <div class="col-md-offset-2 col-md-10">
+                                                    <button type="submit" class="btn blue">Lưu</button>
+                                                </div>
+                                            </div> -->
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- END SAMPLE FORM PORTLET-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END CONTENT -->
+        </div>
+    </div>
+</div>

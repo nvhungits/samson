@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ import { ServiceComponent } from './home/service/service.component';
 import { ActivityComponent } from './home/activity/activity.component';
 import { CategoryComponent } from './home/category/category.component';
 import { NewsfeedComponent } from './home/newsfeed/newsfeed.component';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { NewsfeedComponent } from './home/newsfeed/newsfeed.component';
     ServiceComponent,
     ActivityComponent,
     CategoryComponent,
-    NewsfeedComponent
+    NewsfeedComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +39,7 @@ import { NewsfeedComponent } from './home/newsfeed/newsfeed.component';
     BrowserAnimationsModule,
     DragDropModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
