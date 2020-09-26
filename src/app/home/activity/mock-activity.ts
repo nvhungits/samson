@@ -1,20 +1,20 @@
 export const ACTIVITIES = [
     {
-        title: "Title 1",
-        description: "Cô gái cùng biển",
-        image: "../../assets/frontend/pages/img/samson/hinh1.jpg",
+        title: "VTV",
+        description: "Đài Truyền hình Việt Nam, tên tiếng Anh là Vietnam Television, viết tắt là VTV là đài truyền hình quốc gia trực thuộc Chính phủ Việt Nam. ",
+        image: "../../assets/frontend/pages/img/duan/vtv.png",
         href: ""
     },
     {
-        title: "Title 2",
-        description: "Cô gái cùng resort five start",
-        image: "../../assets/frontend/pages/img/samson/hinh2.jpg",
+        title: "HTV",
+        description: "Tài trợ quảng cáo Trong chương trình Vượt Lên Chính Mình là hình thức quảng cáo trên truyền hình đã và đang được nhiều thương hiệu lớn của Việt Nam đầu tư. ",
+        image: "../../assets/frontend/pages/img/duan/htv.jpg",
         href: ""
     },
     {
-        title: "Title 3",
-        description: "FLC",
-        image: "../../assets/frontend/pages/img/samson/hinh3.jpg",
+        title: "VOV",
+        description: "Kênh Truyền hình VOV – Đài Tiếng nói Việt Nam (VOVTV)",
+        image: "../../assets/frontend/pages/img/duan/vov.png",
         href: ""
     },
     {

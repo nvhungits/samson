@@ -53,6 +53,14 @@
                                                         placeholder="Nhập Số điện thoại" />
                                                 </div>
                                             </div>
+                                            <div class="form-group">
+                                                <label for="inputPassword12" class="col-md-2 control-label">
+                                                    LOGO
+                                                </label>
+                                                <div class="col-md-4">
+                                                    <input type="file" name="logo" />
+                                                </div>
+                                            </div>
                                             <!-- <div class="form-group">
                                                 <div class="col-md-offset-2 col-md-10">
                                                     <button type="submit" class="btn blue">Lưu</button>
@@ -74,13 +82,13 @@
                                         <form class="form-horizontal" #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate *ngIf="companyDB">
                                             <table class="table table-hover">
                                                 <thead>
-                                                    <th>#</th>
-                                                    <th>Name</th>
+                                                    <th>Tên</th>
+                                                    <th>Menu chính</th>
                                                 </thead>
                                                 <tbody>
                                                     <tr *ngFor="let menu of menusDB">
-                                                        <td>{{menu.id}}</td>
                                                         <td>{{menu.name}}</td>
+                                                        <td>{{menu.parentName}}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>

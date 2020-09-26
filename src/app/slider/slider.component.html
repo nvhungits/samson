@@ -29,7 +29,7 @@
           [attr.data-speed]="image.speed"
           [attr.data-start]="image.start"
           [attr.data-easing]="image.easing">
-            <img [src]="image.img" alt="Image 1" *ngIf="image.img" />
+            <img [src]="image.img" alt="Image 1" *ngIf="image.img" style="height: 100% !important"/>
             <iframe [width]="image.iframeWidth" [height]="image.iframeHeight" 
               *ngIf="image.iframe" [style]="image.iframeStyle"
               [src]="sanitizer.bypassSecurityTrustResourceUrl(image.iframe)" frameborder="0" allowfullscreen>

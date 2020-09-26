@@ -4,6 +4,7 @@ export class Menu {
     id: number;
     name: string;
     parent: number;
+    parentName: string;
     menus: Menu[];
     active: number;
 }
