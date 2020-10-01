@@ -20,19 +20,21 @@ export class AppComponent {
     var login = localStorage.getItem('islogin');
     var time = localStorage.getItem('token_time');
 
-    var Deobject = JSON.parse(time),
-      expireTime = Deobject.timestamp,
-      now = new Date().getTime().toString();
+    if(time != null){
+      var Deobject = JSON.parse(time),
+        expireTime = Deobject.timestamp,
+        now = new Date().getTime().toString();
 
-    if(now >= expireTime){
-      token = "";
-      login = "false";
-      localStorage.setItem('token_account', token);
-      localStorage.setItem('islogin', login);
-    }
+      if(now >= expireTime){
+        token = "";
+        login = "false";
+        localStorage.setItem('token_account', token);
+        localStorage.setItem('islogin', login);
+      }
 
-    if(token == "nbcuong-Bcmedia.vn@123" && login == "true"){
-      this.isLoggedIn = true;
+      if(token == "nbcuong-Bcmedia.vn@123" && login == "true"){
+        this.isLoggedIn = true;
+      }
     }
   }
 

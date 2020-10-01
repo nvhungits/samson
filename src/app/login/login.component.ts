@@ -16,7 +16,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log("LOGIN", this.password);
     if(this.password == 'Bcmedia.vn@123'){
       localStorage.setItem('token_account', 'nbcuong-Bcmedia.vn@123');
       localStorage.setItem('islogin', "true");
