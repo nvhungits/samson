@@ -1,0 +1,39 @@
+
+<div class="main">
+    <div class="container">
+        <div class="page-lock">
+            <div class="page-logo">
+                <a class="brand" href="index.html">
+                <img src="../../assets/admin/layout/img/LOGO_bcmedia.jpg" width="100" alt="logo"/>
+                </a>
+            </div>
+            <div class="page-body">
+                <div class="lock-head">
+                    Đăng nhập
+                </div>
+                <div class="lock-body">
+                    <div class="pull-left lock-avatar-block">
+                        <img src="../../assets/admin/pages/media/profile/avatar.png" class="lock-avatar">
+                    </div>
+                    <form class="lock-form pull-left" (ngSubmit)="onSubmit()" method="post">
+                        <h4>Nguyễn Bá Cường</h4>
+                        <div class="form-group">
+                            <input class="form-control placeholder-no-fix" 
+                                type="password" autocomplete="off" 
+                                placeholder="Mật khẩu" name="password" [(ngModel)]="password" />
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-success uppercase">Đăng nhập</button>
+                        </div>
+                        <div style="color: red;">
+                            {{messageStatus}}
+                        </div>
+                    </form>
+                </div>
+                <div class="lock-bottom">
+                    <a href="">Liên hệ để lấy mật khẩu</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

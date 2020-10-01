@@ -1,5 +1,5 @@
  <!-- BEGIN STYLE CUSTOMIZER -->
- <div class="color-panel hidden-sm">
+ <div class="color-panel hidden-sm" *ngIf="isLoggedIn">
   <div class="color-mode-icons icon-color"></div>
   <div class="color-mode-icons icon-color-close"></div>
   <div class="color-mode">
@@ -21,10 +21,14 @@
 <!-- END TOP BAR -->
 
 <!-- BEGIN HEADER -->
-<div class="header" app-header></div>
+<div class="header" app-header *ngIf="isLoggedIn"></div>
 <!-- Header END -->
 
-<router-outlet></router-outlet>
+<!-- BEGIN TOP BAR -->
+<div class="pre-header" app-login *ngIf="!isLoggedIn"></div>
+<!-- END TOP BAR -->
+
+<router-outlet *ngIf="isLoggedIn"></router-outlet>
 
 <!-- BEGIN PRE-FOOTER -->
 <div class="pre-footer">
@@ -33,26 +37,16 @@
       <!-- BEGIN BOTTOM ABOUT BLOCK -->
       <div class="col-md-4 col-sm-6 pre-footer-col">
         <h2>Về Chúng Tôi</h2>
-        <p>Công ty truyền thông</p>
+        <p>Công ty truyền thông và sự kiện</p>
 
         <div class="photo-stream">
           <h2>Hình ảnh nhân viên</h2>
           <ul class="list-unstyled">
             <li><a href="javascript:;"><img alt="" src="../../assets/frontend/pages/img/people/img5-small.jpg"></a></li>
-            <li><a href="javascript:;"><img alt="" src="../../assets/frontend/pages/img/works/img1.jpg"></a></li>
             <li><a href="javascript:;"><img alt="" src="../../assets/frontend/pages/img/people/img4-large.jpg"></a></li>
-            <li><a href="javascript:;"><img alt="" src="../../assets/frontend/pages/img/works/img6.jpg"></a></li>
-            <li><a href="javascript:;"><img alt="" src="../../assets/frontend/pages/img/works/img3.jpg"></a></li>
             <li><a href="javascript:;"><img alt="" src="../../assets/frontend/pages/img/people/img2-large.jpg"></a></li>
-            <li><a href="javascript:;"><img alt="" src="../../assets/frontend/pages/img/works/img2.jpg"></a></li>
-            <li><a href="javascript:;"><img alt="" src="../../assets/frontend/pages/img/works/img5.jpg"></a></li>
             <li><a href="javascript:;"><img alt="" src="../../assets/frontend/pages/img/people/img5-small.jpg"></a></li>
-            <li><a href="javascript:;"><img alt="" src="../../assets/frontend/pages/img/works/img1.jpg"></a></li>
             <li><a href="javascript:;"><img alt="" src="../../assets/frontend/pages/img/people/img4-large.jpg"></a></li>
-            <li><a href="javascript:;"><img alt="" src="../../assets/frontend/pages/img/works/img6.jpg"></a></li>
-            <li><a href="javascript:;"><img alt="" src="../../assets/frontend/pages/img/works/img3.jpg"></a></li>
-            <li><a href="javascript:;"><img alt="" src="../../assets/frontend/pages/img/people/img2-large.jpg"></a></li>
-            <li><a href="javascript:;"><img alt="" src="../../assets/frontend/pages/img/works/img2.jpg"></a></li>
           </ul>                    
         </div>
       </div>

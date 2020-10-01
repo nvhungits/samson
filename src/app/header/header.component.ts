@@ -15,7 +15,6 @@ export class HeaderComponent implements OnInit {
   constructor(private headerService: HeaderService) { }
 
   ngOnInit(): void {
-    console.log("--- HEADER INIT --- ");
     this.headerService.getAll().subscribe(
       (res: Menu[]) => {
         res.forEach(menu => {
@@ -24,7 +23,7 @@ export class HeaderComponent implements OnInit {
             this.menusDB.push(menu);
           }
         });
-        console.log("Menus", this.menusDB);
+        //console.log("Menus", this.menusDB);
       },
       (err) => {
         console.log("ERROR", err);

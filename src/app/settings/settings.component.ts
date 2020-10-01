@@ -19,18 +19,16 @@ export class SettingsComponent implements OnInit {
   constructor(private companyService: CompanyService, private headerService: HeaderService) { }
 
   ngOnInit(): void {
-    console.log("--- TOP BAR INIT --- ");
     this.companyService.getAll().subscribe(
       (res: Company) => {
         this.companyDB = res[0];
-        console.log("Company", this.companyDB);
+        //console.log("Company", this.companyDB);
       },
       (err) => {
         console.log("ERROR", err);
       }
     );
 
-    console.log("--- HEADER INIT --- ");
     this.headerService.getAll().subscribe(
       (res: Menu[]) => {
         res.forEach(menu => {
@@ -38,7 +36,7 @@ export class SettingsComponent implements OnInit {
           this.menusDB.push(menu);
         });
         this.updateParentName();
-        console.log("Menus", this.menusDB);
+        //console.log("Menus", this.menusDB);
       },
       (err) => {
         console.log("ERROR", err);

@@ -18,6 +18,7 @@ import { ActivityComponent } from './home/activity/activity.component';
 import { CategoryComponent } from './home/category/category.component';
 import { NewsfeedComponent } from './home/newsfeed/newsfeed.component';
 import { SettingsComponent } from './settings/settings.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { SettingsComponent } from './settings/settings.component';
     ActivityComponent,
     CategoryComponent,
     NewsfeedComponent,
-    SettingsComponent
+    SettingsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
