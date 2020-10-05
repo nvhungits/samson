@@ -39,12 +39,12 @@
         <!-- BUTTONs -->
         <a *ngFor="let button of slider.buttons"
           class="caption {{button.className}}" 
-          href="#"
+          [href]="button.href"
           [attr.data-x]="button.x"
           [attr.data-y]="button.y"
           [attr.data-speed]="button.speed"
           [attr.data-start]="button.start"
-          [attr.data-easing]="button.easing">
+          [attr.data-easing]="button.easing" target="_blank">
             {{button.value}}
         </a>
 

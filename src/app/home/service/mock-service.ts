@@ -5,8 +5,8 @@ export const SERVICES = [
         icon: "fa-location-arrow blue"
     },
     {
-        title: "Thị xã Sầm Sơn (Sầm Sơn)",
-        description: "Sầm Sơn là một thành phố ven biển thuộc tỉnh Thanh Hóa, Việt Nam. Thành phố Sầm Sơn được thành lập vào năm 2017 trên cơ sở toàn bộ diện tích và dân số của thị xã Sầm Sơn theo Nghị quyết số 368/NQ-UBTVQH14 của Ủy ban thường vụ Quốc hội.",
+        title: "Cách truyền thông tốt nhất",
+        description: "Hãy dành ra 5 phút để suy nghĩ một vài câu hỏi mà bạn có thể hỏi và sau đó thêm 5 phút để thăm dò ý kiến. Hãy viết câu hỏi ngắn gọn và rõ ràng, dĩ nhiên nên cung cấp những thông tin hữu ích cho việc kinh doanh.",
         icon: "fa-check red"
     },
     {

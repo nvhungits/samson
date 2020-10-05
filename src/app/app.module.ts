@@ -19,6 +19,7 @@ import { CategoryComponent } from './home/category/category.component';
 import { NewsfeedComponent } from './home/newsfeed/newsfeed.component';
 import { SettingsComponent } from './settings/settings.component';
 import { LoginComponent } from './login/login.component';
+import { BcmediatvComponent } from './bcmediatv/bcmediatv.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { LoginComponent } from './login/login.component';
     CategoryComponent,
     NewsfeedComponent,
     SettingsComponent,
-    LoginComponent
+    LoginComponent,
+    BcmediatvComponent
   ],
   imports: [
     BrowserModule,

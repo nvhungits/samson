@@ -4,11 +4,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { SettingsComponent } from './settings/settings.component';
 import { LoginComponent } from './login/login.component';
+import { BcmediatvComponent } from './bcmediatv/bcmediatv.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'settings', component: SettingsComponent},
-  { path: 'login', component: LoginComponent}
+  { path: 'login', component: LoginComponent},
+  { path: 'bcmediatv', component: BcmediatvComponent}
 ];
 
 @NgModule({
