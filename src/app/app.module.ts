@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { NgxMuiDatatablesModule } from 'ngx-mui-datatables';
+//import { NgxMuiDatatablesModule } from 'ngx-mui-datatables';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -53,7 +53,7 @@ import { NgSelect2Module } from 'ng-select2';
     DragDropModule,
     HttpClientModule,
     FormsModule,
-    NgxMuiDatatablesModule,
+    //NgxMuiDatatablesModule,
     NgSelect2Module
   ],
   providers: [],

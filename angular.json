@@ -13,6 +13,28 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies":[
+              "hoist-non-react-statics",
+              "react-is",
+              "classnames",
+              "prop-types",
+              "react-to-print",
+              "react-dom",
+              "react",
+              "mui-datatables",
+              "uuid",
+              "@material-ui/icons/KeyboardArrowRight",
+              "@material-ui/icons/Search",
+              "material-ui/icons/Clear",
+              "@material-ui/icons/CloudDownload",
+              "material-ui/icons/Help",
+              "@material-ui/icons/Delete",
+              "@material-ui/icons/FilterList",
+              "@material-ui/icons/ViewColumn",
+              "@material-ui/icons/Print",
+              "@material-ui/icons/Clear",
+              "@material-ui/icons/Help"
+            ],
             "outputPath": "dist/demo",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -25,9 +47,12 @@
             ],
             "styles": [
               "src/custom-theme.scss",
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/select2/dist/css/select2.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/select2/dist/js/select2.min.js"
+            ]
           },
           "configurations": {
             "production": {
