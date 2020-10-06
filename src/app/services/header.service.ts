@@ -22,6 +22,17 @@ export class HeaderService {
     catchError(this.handleError));
   }
 
+  update(requestBody): Observable<any> {
+    return this.http.put(
+      environment.appUrl + "/api/update_menu.php", 
+      requestBody,
+      {responseType: 'text'}).pipe(
+      map((res) => {
+        return res;
+    }),
+    catchError(this.handleError));
+  }
+
   private handleError(error: HttpErrorResponse) {
     console.log("handleError", error);
    

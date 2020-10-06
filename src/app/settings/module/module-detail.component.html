@@ -1,0 +1,88 @@
+<div class="main">
+    <div class="container">
+        <ul class="breadcrumb" *ngIf="menuDB">
+            <li><a href=".">Trang chủ</a></li>
+            <li><a routerLink="/settings">Danh sách modules</a></li>
+            <li class="active">Chi tiết '{{menuDB.name}}'</li>
+        </ul>
+        <div class="row margin-bottom-20">
+            <!-- BEGIN CONTENT -->
+            <div class="col-md-12 col-sm-12">
+                <div class="content-page">
+                        <div class="row ">
+                            <div class="col-md-12">
+                                <div class="portlet box blue">
+
+                                    <div class="portlet-title" *ngIf="menuDB">
+                                        <div class="caption">
+                                            <i class="fa fa-home"></i>Thôn tin Module '{{menuDB.name}}'
+                                        </div>
+                                    </div>
+                                
+                                    <div class="portlet-body" *ngIf="menuDB">
+                                        <form class="form-horizontal" #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+                                            <div class="form-group">
+                                                <label for="id" class="col-md-2 control-label">
+                                                    ID
+                                                </label>
+                                                <div class="col-md-4">
+                                                    <input name="id" readonly
+                                                        class="form-control" [(ngModel)]="menuDB.id" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="name" class="col-md-2 control-label">
+                                                    Tên
+                                                </label>
+                                                <div class="col-md-4">
+                                                    <input name="name" [(ngModel)]="menuDB.name"
+                                                        class="form-control" required />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="sequence" class="col-md-2 control-label">
+                                                    Thứ tự sắp xếp
+                                                </label>
+                                                <div class="col-md-4">
+                                                    <input name="sequence" [(ngModel)]="menuDB.sequence"
+                                                        class="form-control" required />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="url" class="col-md-2 control-label">
+                                                    Đường dẫn
+                                                </label>
+                                                <div class="col-md-4">
+                                                    <input name="url" readonly [(ngModel)]="menuDB.url"
+                                                        class="form-control" required />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="name" class="col-md-2 control-label">
+                                                    Menu chính
+                                                </label>
+                                                <div class="col-md-4" *ngIf="menusDB.length > 0">
+                                                    <ng-select2 [data]="menusDB"
+                                                        [placeholder]="'Chọn menu chính'"
+                                                        [options]="options"
+                                                        [(ngModel)]="menuDB.parent"
+                                                        [ngModelOptions]="{standalone: true}">
+                                                    </ng-select2>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-offset-2 col-md-10">
+                                                    <button type="submit" class="btn blue">Lưu</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END CONTENT -->
+            </div>
+        </div>
+    </div>

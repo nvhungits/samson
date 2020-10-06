@@ -7,5 +7,6 @@ export class Menu {
     parentName: string;
     menus: Menu[];
     url: string;
+    text: string;
     active: number;
 }

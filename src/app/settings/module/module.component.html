@@ -1,0 +1,9 @@
+<div class="portlet-title">
+    <div class="caption">
+        <i class="fa fa-home"></i>Danh sách menu
+    </div>
+</div>
+<div class="portlet-body" >
+    <img src="../../../assets/global/img/loading.gif" *ngIf="!menusDB" />
+    <ngx-mui-datatable *ngIf="menusDB.length > 0" [data]="menusDB" [columns]="columns" [options]="options"></ngx-mui-datatable>
+</div>

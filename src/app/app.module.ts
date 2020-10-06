@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { NgxMuiDatatablesModule } from 'ngx-mui-datatables';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,11 @@ import { NewsfeedComponent } from './home/newsfeed/newsfeed.component';
 import { SettingsComponent } from './settings/settings.component';
 import { LoginComponent } from './login/login.component';
 import { BcmediatvComponent } from './bcmediatv/bcmediatv.component';
+import { CompanyInfoComponent } from './settings/company-info/company-info.component';
+import { ModuleComponent } from './settings/module/module.component';
+import { ModuleDetailComponent } from './settings/module/module-detail.component';
+
+import { NgSelect2Module } from 'ng-select2';
 
 @NgModule({
   declarations: [
@@ -35,7 +41,10 @@ import { BcmediatvComponent } from './bcmediatv/bcmediatv.component';
     NewsfeedComponent,
     SettingsComponent,
     LoginComponent,
-    BcmediatvComponent
+    BcmediatvComponent,
+    CompanyInfoComponent,
+    ModuleComponent,
+    ModuleDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +52,9 @@ import { BcmediatvComponent } from './bcmediatv/bcmediatv.component';
     BrowserAnimationsModule,
     DragDropModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxMuiDatatablesModule,
+    NgSelect2Module
   ],
   providers: [],
   bootstrap: [AppComponent]
