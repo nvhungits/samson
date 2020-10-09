@@ -4,6 +4,36 @@
     </div>
 </div>
 <div class="portlet-body" >
-    <img src="../../../assets/global/img/loading.gif" *ngIf="!menusDB" />
-    <ngx-mui-datatable *ngIf="menusDB.length > 0" [data]="menusDB" [columns]="columns" [options]="options"></ngx-mui-datatable>
+    <!-- <img src="../../../assets/global/img/loading.gif" *ngIf="!menusDB" /> -->
+
+    <div class="container text-center" style="width:100%;">
+
+        <div class="row text-left">
+          <!--Custom -->
+          <div class="col-sm-4">
+            <div class="form-group">
+              <button routerLink="module/new" class="btn red">Tạo</button>
+            </div>
+          </div>
+        </div>
+        <!-- Datatable -->
+        <table id="dataTables-example" 
+            class="table table-bordered table-sm row-border hover" 
+            datatable [dtOptions]="dtOptions" *ngIf="menusDB.length > 0">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Tên</th>
+                <th>Menu Chính</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let menu of menusDB" routerLink="module/{{menu.id}}" style="cursor:pointer;">
+                <td>{{menu.id}}</td>
+                <td>{{menu.name}}</td>
+                <td>{{getNameMenuById(menu.parent)}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

@@ -11,77 +11,11 @@ import { Router} from '@angular/router';
 export class ModuleComponent implements OnInit {
 
   constructor(private headerService: HeaderService, private route: Router) { }
+  dtOptions: DataTables.Settings = {};
 
-  columns = [
-    {
-      name: 'id',
-      label: 'id',
-      options: {
-        display: false
-      }
-    },
-    {
-      name: 'name',
-      label: 'Tên',
-      options: {
-        filter: true,
-        sort: true,
-      }
-    },
-    {
-      name: 'parent',
-      label: 'Menu Chính',
-      options: {
-        filter: true,
-        sort: false,
-      }
-    }
-  ];
-  options = {
-    rowsPerPage: 5,
-    rowsPerPageOptions: [5, 10, 15, 20, 100],
-    onRowClick: (data) => {
-      //console.log(data);
-      this.route.navigate(['settings/module', data.length > 0 ? data[0] : null ]);
-    },
-    filterType: 'checkbox',
-    textLabels: {
-      body: {
-        noMatch: "Không tìm thấy module",
-        toolTip: "Sort",
-        columnHeaderTooltip: column => `Sort for ${column.label}`
-      },
-      pagination: {
-        next: "Trang tiếp",
-        previous: "Trang sau",
-        rowsPerPage: "số lượng trên một trang",
-        displayRows: "trong",
-      },
-      toolbar: {
-        search: "Tìm kiếm",
-        downloadCsv: "Tải về CSV file",
-        print: "In",
-        viewColumns: "Xem theo cột",
-        filterTable: "Tìm kiềm nhiều hơn",
-      },
-      filter: {
-        all: "tất cả",
-        title: "Tìm kiếm theo",
-        reset: "RESET",
-      },
-      viewColumns: {
-        title: "Show Columns",
-        titleAria: "Show/Hide Table Columns",
-      },
-      selectedRows: {
-        text: "đã chọn",
-        delete: "Xóa",
-        deleteAria: "Xóa đã chọn",
-      },
-    }
-  };
   menusDB = new Array<Menu>();
   ngOnInit(): void {
+
     this.headerService.getAll().subscribe(
       (res: Menu[]) => {
         res.forEach(menu => {
@@ -89,7 +23,14 @@ export class ModuleComponent implements OnInit {
           this.menusDB.push(menu);
         });
         this.updateParentName();
-        console.log("Menus", this.menusDB);
+        this.dtOptions = {
+          pagingType: 'full_numbers',
+          pageLength: 5,
+          lengthMenu : [5, 10, 25],
+          processing: true
+        };
+        //console.log(this.getNameMenuById(3));
+        //console.log("Menus", this.menusDB);
       },
       (err) => {
         console.log("ERROR", err);
@@ -117,6 +58,11 @@ export class ModuleComponent implements OnInit {
       }
     });
     return submenu;
+  }
+
+  getNameMenuById(Id: number){
+    var menus = this.menusDB.filter(x => x.id == Id);
+    return menus[0] ? menus[0].name : "";
   }
 
 }

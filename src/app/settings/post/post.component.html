@@ -1,0 +1,42 @@
+<div class="portlet-title">
+    <div class="caption">
+        <i class="fa fa-home"></i>Danh sách bài viết
+    </div>
+</div>
+<div class="portlet-body" >
+    <div class="container text-center" style="width:100%;">
+
+        <div class="row text-left">
+            <!--Custom -->
+            <div class="col-sm-4">
+              <div class="form-group">
+                <button routerLink="post/new" class="btn red">Tạo</button>
+              </div>
+            </div>
+        </div>
+
+        <!-- Datatable -->
+        <table id="dataTables-example" 
+            class="table table-bordered table-sm row-border hover" 
+            datatable [dtOptions]="dtOptions" *ngIf="postsDB.length > 0">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Tiêu đề</th>
+                <th>Loại</th>
+                <th>Tác giả</th>
+                <th>Thời gian tạo</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let post of postsDB" routerLink="post/{{post.id}}" style="cursor:pointer;">
+                <td>{{post.id}}</td>
+                <td>{{post.title}}</td>
+                <td>{{post.type}}</td>
+                <td>{{post.createdBy}}</td>
+                <td>{{post.created}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

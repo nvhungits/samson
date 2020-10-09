@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 //import { NgxMuiDatatablesModule } from 'ngx-mui-datatables';
+import {DataTablesModule} from 'angular-datatables';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +27,8 @@ import { ModuleComponent } from './settings/module/module.component';
 import { ModuleDetailComponent } from './settings/module/module-detail.component';
 
 import { NgSelect2Module } from 'ng-select2';
+import { PostComponent } from './settings/post/post.component';
+import { PostDetailComponent } from './settings/post/post-detail.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,9 @@ import { NgSelect2Module } from 'ng-select2';
     BcmediatvComponent,
     CompanyInfoComponent,
     ModuleComponent,
-    ModuleDetailComponent
+    ModuleDetailComponent,
+    PostComponent,
+    PostDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -54,6 +59,7 @@ import { NgSelect2Module } from 'ng-select2';
     HttpClientModule,
     FormsModule,
     //NgxMuiDatatablesModule,
+    DataTablesModule,
     NgSelect2Module
   ],
   providers: [],

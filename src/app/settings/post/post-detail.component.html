@@ -1,9 +1,9 @@
 <div class="main">
     <div class="container">
-        <ul class="breadcrumb" *ngIf="menuDB">
+        <ul class="breadcrumb" *ngIf="postDB">
             <li><a href=".">Trang chủ</a></li>
             <li><a routerLink="/settings">Cài đặt</a></li>
-            <li class="active">Chi tiết '{{menuDB.name}}'</li>
+            <li class="active">Chi tiết '{{postDB.name}}'</li>
         </ul>
         <div class="row margin-bottom-20">
             <!-- BEGIN CONTENT -->
@@ -11,15 +11,15 @@
                 <div class="content-page">
                         <div class="row ">
                             <div class="col-md-12">
-                                <div class="portlet box blue">
+                                <div class="portlet box blue" *ngIf="postDB">
 
-                                    <div class="portlet-title" *ngIf="menuDB">
+                                    <div class="portlet-title" >
                                         <div class="caption">
-                                            <i class="fa fa-home"></i>Thôn tin Module '{{menuDB.name}}'
+                                            <i class="fa fa-home"></i>Thôn tin Module '{{postDB.name}}'
                                         </div>
                                     </div>
                                 
-                                    <div class="portlet-body" *ngIf="menuDB">
+                                    <div class="portlet-body">
                                         <form class="form-horizontal" #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
                                             <div class="form-group">
                                                 <label for="id" class="col-md-2 control-label">
@@ -27,47 +27,53 @@
                                                 </label>
                                                 <div class="col-md-4">
                                                     <input name="id" readonly
-                                                        class="form-control" [(ngModel)]="menuDB.id" />
+                                                        class="form-control" [(ngModel)]="postDB.id" />
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="name" class="col-md-2 control-label">
-                                                    Tên
+                                                <label for="title" class="col-md-2 control-label">
+                                                    Tiêu đề
                                                 </label>
-                                                <div class="col-md-4">
-                                                    <input name="name" [(ngModel)]="menuDB.name"
+                                                <div class="col-md-10">
+                                                    <input name="title" [(ngModel)]="postDB.title"
                                                         class="form-control" required />
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="sequence" class="col-md-2 control-label">
-                                                    Thứ tự sắp xếp
+                                                <label for="description" class="col-md-2 control-label">
+                                                    Mô tả
                                                 </label>
-                                                <div class="col-md-4">
-                                                    <input name="sequence" [(ngModel)]="menuDB.sequence"
+                                                <div class="col-md-10">
+                                                    <textarea name="description" style="height:300px" [(ngModel)]="postDB.description"
+                                                        class="form-control" required>
+                                                    </textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="videoUrl" class="col-md-2 control-label">
+                                                   Video URL
+                                                </label>
+                                                <div class="col-md-10">
+                                                    <input name="videoUrl" [(ngModel)]="postDB.video_url"
                                                         class="form-control" required />
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="url" class="col-md-2 control-label">
-                                                    Đường dẫn
+                                                <label for="videoEmbed" class="col-md-2 control-label">
+                                                    Video Embed
                                                 </label>
-                                                <div class="col-md-4">
-                                                    <input name="url" readonly [(ngModel)]="menuDB.url"
+                                                <div class="col-md-10">
+                                                    <input name="videoEmbed" [(ngModel)]="postDB.video_embed"
                                                         class="form-control" required />
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="name" class="col-md-2 control-label">
-                                                    Menu chính
+                                                <label for="tags" class="col-md-2 control-label">
+                                                    Tags
                                                 </label>
-                                                <div class="col-md-4" *ngIf="menusDB.length > 0">
-                                                    <ng-select2 [data]="menusDB"
-                                                        [placeholder]="'Chọn menu chính'"
-                                                        [options]="options"
-                                                        [(ngModel)]="menuDB.parent"
-                                                        [ngModelOptions]="{standalone: true}">
-                                                    </ng-select2>
+                                                <div class="col-md-10">
+                                                    <input name="tags" [(ngModel)]="postDB.tags"
+                                                        class="form-control" required />
                                                 </div>
                                             </div>
                                             <div class="form-group">
