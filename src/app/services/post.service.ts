@@ -33,6 +33,18 @@ export class PostService {
     catchError(this.handleError));
   }
 
+  create(requestBody): Observable<any> {
+    console.log("??");
+    return this.http.post(
+      environment.appUrl + "/api/create_post.php", 
+      requestBody,
+      {responseType: 'text'}).pipe(
+      map((res) => {
+        return res;
+    }),
+    catchError(this.handleError));
+  }
+
   private handleError(error: HttpErrorResponse) {
     console.log("handleError", error);
    

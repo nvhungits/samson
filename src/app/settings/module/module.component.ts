@@ -14,6 +14,7 @@ export class ModuleComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
 
   menusDB = new Array<Menu>();
+  isLoading = true;
   ngOnInit(): void {
 
     this.headerService.getAll().subscribe(
@@ -29,6 +30,7 @@ export class ModuleComponent implements OnInit {
           lengthMenu : [5, 10, 25],
           processing: true
         };
+        this.isLoading = false;
         //console.log(this.getNameMenuById(3));
         //console.log("Menus", this.menusDB);
       },

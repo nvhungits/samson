@@ -4,7 +4,7 @@
     </div>
 </div>
 <div class="portlet-body" >
-    <!-- <img src="../../../assets/global/img/loading.gif" *ngIf="!menusDB" /> -->
+    
 
     <div class="container text-center" style="width:100%;">
 
@@ -16,6 +16,8 @@
             </div>
           </div>
         </div>
+
+        <img src="../../../assets/global/img/loading.gif" *ngIf="isLoading"  />
         <!-- Datatable -->
         <table id="dataTables-example" 
             class="table table-bordered table-sm row-border hover" 

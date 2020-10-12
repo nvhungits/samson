@@ -1,9 +1,9 @@
 <div class="main">
     <div class="container">
-        <ul class="breadcrumb" *ngIf="postDB">
+        <ul class="breadcrumb">
             <li><a href=".">Trang chủ</a></li>
             <li><a routerLink="/settings">Cài đặt</a></li>
-            <li class="active">Chi tiết '{{postDB.name}}'</li>
+            <li class="active">Chi tiết '{{ (postTitle.length > 50) ? (postTitle | slice:0:50)+'..' : (postTitle) }}'</li>
         </ul>
         <div class="row margin-bottom-20">
             <!-- BEGIN CONTENT -->
@@ -11,17 +11,19 @@
                 <div class="content-page">
                         <div class="row ">
                             <div class="col-md-12">
-                                <div class="portlet box blue" *ngIf="postDB">
+                                <div class="portlet box blue">
 
                                     <div class="portlet-title" >
                                         <div class="caption">
-                                            <i class="fa fa-home"></i>Thôn tin Module '{{postDB.name}}'
+                                            <i class="fa fa-home"></i>Thôn tin Module '{{ (postTitle.length > 50) ? (postTitle | slice:0:50)+'..' : (postTitle) }}'
                                         </div>
                                     </div>
                                 
                                     <div class="portlet-body">
-                                        <form class="form-horizontal" #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
-                                            <div class="form-group">
+
+                                        <img src="../../../assets/global/img/loading.gif" *ngIf="isLoading" style="padding-left: 48%;" />
+                                        <form method="{{method}}" class="form-horizontal" #f="ngForm" (ngSubmit)="onSubmit(f)" *ngIf="postDB" novalidate>
+                                            <div class="form-group" *ngIf="postDB.id">
                                                 <label for="id" class="col-md-2 control-label">
                                                     ID
                                                 </label>

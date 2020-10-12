@@ -1,9 +1,9 @@
 <div class="main">
     <div class="container">
-        <ul class="breadcrumb" *ngIf="menuDB">
+        <ul class="breadcrumb">
             <li><a href=".">Trang chủ</a></li>
             <li><a routerLink="/settings">Cài đặt</a></li>
-            <li class="active">Chi tiết '{{menuDB.name}}'</li>
+            <li class="active">Chi tiết '{{menuName}}'</li>
         </ul>
         <div class="row margin-bottom-20">
             <!-- BEGIN CONTENT -->
@@ -13,14 +13,14 @@
                             <div class="col-md-12">
                                 <div class="portlet box blue">
 
-                                    <div class="portlet-title" *ngIf="menuDB">
+                                    <div class="portlet-title">
                                         <div class="caption">
-                                            <i class="fa fa-home"></i>Thôn tin Module '{{menuDB.name}}'
+                                            <i class="fa fa-home"></i>Thôn tin Module '{{menuName}}'
                                         </div>
                                     </div>
-                                
-                                    <div class="portlet-body" *ngIf="menuDB">
-                                        <form class="form-horizontal" #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+                                    <div class="portlet-body">
+                                        <img src="../../../assets/global/img/loading.gif" *ngIf="isLoading" style="padding-left: 48%;" />
+                                        <form class="form-horizontal" #f="ngForm" (ngSubmit)="onSubmit(f)"  *ngIf="menuDB" novalidate>
                                             <div class="form-group">
                                                 <label for="id" class="col-md-2 control-label">
                                                     ID
@@ -83,6 +83,6 @@
                     </div>
                 </div>
                 <!-- END CONTENT -->
-            </div>
         </div>
     </div>
+</div>

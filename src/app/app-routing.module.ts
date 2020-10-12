@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { BcmediatvComponent } from './bcmediatv/bcmediatv.component';
 import { ModuleDetailComponent } from './settings/module/module-detail.component';
 import { PostDetailComponent } from './settings/post/post-detail.component';
+import { BcmediatvDetailComponent } from './bcmediatv/bcmediatv-detail.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'settings/module/:id', component: ModuleDetailComponent},
   { path: 'settings/post/:id', component: PostDetailComponent},
   { path: 'login', component: LoginComponent},
-  { path: 'bcmediatv', component: BcmediatvComponent}
+  { path: 'bcmediatv', component: BcmediatvComponent},
+  { path: 'bcmediatv/:id', component: BcmediatvDetailComponent}
 ];
 
 @NgModule({

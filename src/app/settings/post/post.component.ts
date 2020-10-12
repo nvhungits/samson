@@ -10,6 +10,7 @@ import { PostService } from '../../services/post.service';
 export class PostComponent implements OnInit {
 
   postsDB = new Array<Post>();
+  isLoading = true;
   constructor(private postService: PostService) { }
 
   ngOnInit(): void {
@@ -18,7 +19,8 @@ export class PostComponent implements OnInit {
         res.forEach(post => {
           this.postsDB.push(post);
         });
-        console.log("postsDB", this.postsDB);
+        this.isLoading = false;
+        //console.log("postsDB", this.postsDB);
       },
       (err) => {
         console.log("ERROR", err);

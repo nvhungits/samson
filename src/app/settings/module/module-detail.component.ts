@@ -17,6 +17,8 @@ export class ModuleDetailComponent implements OnInit {
   id: string;
   selected: number;
   options: any;
+  isLoading = true;
+  menuName = "";
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get("id");
@@ -28,9 +30,11 @@ export class ModuleDetailComponent implements OnInit {
           this.menusDB.push(menu);
           if(menu.id.toString() == this.id){
             this.menuDB = menu;
+            this.menuName = menu.name;
             this.selected = menu.parent;
           }
         });
+        this.isLoading = false;
         //console.log(this.menusDB, this.id, this.selected);
         this.options = {
           width: '300',

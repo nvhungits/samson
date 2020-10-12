@@ -3,8 +3,9 @@
         <i class="fa fa-home"></i>Thôn tin công ty
     </div>
 </div>
-<div class="portlet-body" *ngIf="companyDB">
-    <form class="form-horizontal" #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+<div class="portlet-body">
+    <img src="../../../assets/global/img/loading.gif" *ngIf="isLoading" style="padding-left: 48%;"  />
+    <form class="form-horizontal" #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate *ngIf="companyDB">
         <div class="form-group">
             <label for="inputEmail1" class="col-md-2 control-label">
                 Email

@@ -29,6 +29,7 @@ import { ModuleDetailComponent } from './settings/module/module-detail.component
 import { NgSelect2Module } from 'ng-select2';
 import { PostComponent } from './settings/post/post.component';
 import { PostDetailComponent } from './settings/post/post-detail.component';
+import { BcmediatvDetailComponent } from './bcmediatv/bcmediatv-detail.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { PostDetailComponent } from './settings/post/post-detail.component';
     ModuleComponent,
     ModuleDetailComponent,
     PostComponent,
-    PostDetailComponent
+    PostDetailComponent,
+    BcmediatvDetailComponent
   ],
   imports: [
     BrowserModule,

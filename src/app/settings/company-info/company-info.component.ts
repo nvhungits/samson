@@ -11,12 +11,14 @@ import {NgForm} from '@angular/forms';
 export class CompanyInfoComponent implements OnInit {
 
   companyDB: Company
+  isLoading = true;
   constructor(private companyService: CompanyService) { }
 
   ngOnInit(): void {
     this.companyService.getAll().subscribe(
       (res: Company) => {
         this.companyDB = res[0];
+        this.isLoading = false;
         //console.log("Company", this.companyDB);
       },
       (err) => {

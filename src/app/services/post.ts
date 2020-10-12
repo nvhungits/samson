@@ -1,12 +1,12 @@
 export class Post {
     constructor() {}
 
-    id: number;
+    id?: number;
     title: string;
-    videoUrl: string;
-    videoEmbed: string;
-    created: string;
-    createdBy: string;
+    video_url: string;
+    video_embed: string;
+    created?: string;
+    created_by: string;
     type: string;
     description: string;
     tags: string;
