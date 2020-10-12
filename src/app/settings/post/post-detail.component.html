@@ -46,9 +46,14 @@
                                                     Mô tả
                                                 </label>
                                                 <div class="col-md-10">
-                                                    <textarea name="description" style="height:300px" [(ngModel)]="postDB.description"
+                                                    <!-- <textarea name="description" style="height:300px" [(ngModel)]="postDB.description"
                                                         class="form-control" required>
-                                                    </textarea>
+                                                    </textarea> -->
+                                                    
+                                                    <quill-editor
+                                                        format="html"
+                                                        [(ngModel)]="postDB.description" [ngModelOptions]="{standalone: true}">
+                                                    </quill-editor>
                                                 </div>
                                             </div>
                                             <div class="form-group">

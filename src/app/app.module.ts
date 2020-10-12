@@ -30,6 +30,7 @@ import { NgSelect2Module } from 'ng-select2';
 import { PostComponent } from './settings/post/post.component';
 import { PostDetailComponent } from './settings/post/post-detail.component';
 import { BcmediatvDetailComponent } from './bcmediatv/bcmediatv-detail.component';
+import { QuillModule } from 'ngx-quill';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,13 @@ import { BcmediatvDetailComponent } from './bcmediatv/bcmediatv-detail.component
     FormsModule,
     //NgxMuiDatatablesModule,
     DataTablesModule,
-    NgSelect2Module
+    NgSelect2Module,
+    QuillModule.forRoot({
+      customOptions: [{
+        import: 'formats/font',
+        whitelist: ['mirza', 'roboto', 'aref', 'serif', 'sansserif', 'monospace']
+      }]
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

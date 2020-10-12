@@ -1,8 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../../services/post';
 import { PostService }  from '../../services/post.service';
-import {NgForm} from '@angular/forms';
 import { ActivatedRoute, Router  } from "@angular/router";
+import { NgForm } from '@angular/forms'
+import { DomSanitizer } from '@angular/platform-browser'
+
+import Quill from 'quill'
+const parchment = Quill.import('parchment')
+const block = parchment.query('block')
+block.tagName = 'DIV'
+// or class NewBlock extends Block {} NewBlock.tagName = 'DIV'
+Quill.register(block /* or NewBlock */, true)
 
 @Component({
   selector: 'app-module-detail',
@@ -10,7 +18,11 @@ import { ActivatedRoute, Router  } from "@angular/router";
 })
 export class PostDetailComponent implements OnInit {
 
-  constructor(private postService: PostService, private route: ActivatedRoute, private router: Router) { }
+  constructor(
+    private postService: PostService, 
+    private route: ActivatedRoute, 
+    private router: Router,
+    private sanitizer: DomSanitizer) { }
 
   postsDB = new Array<Post>();
   postDB: Post;
@@ -27,14 +39,8 @@ export class PostDetailComponent implements OnInit {
       this.method = "post";
       this.isLoading = false;
       this.postDB = {
-        title: "",
-        video_embed: "",
-        video_url: "",
-        viewers: 0,
-        description: "",
-        type: "bcmediaTV",
-        tags: "",
-        created_by: "HN"
+        title: "",video_embed: "",video_url: "",viewers: 0,
+        description: "", type: "bcmediaTV",tags: "",created_by: "HN"
       }
     }
     else{
@@ -70,7 +76,7 @@ export class PostDetailComponent implements OnInit {
     {
       this.postService.update(this.postDB).subscribe(
         (res) => {
-          console.log(res);
+          //console.log(res, this.postDB);
           alert("Cập nhập");
           location.reload();
         },
@@ -92,4 +98,7 @@ export class PostDetailComponent implements OnInit {
     }
   }
 
+  byPassHTML(html: string) {
+    return this.sanitizer.bypassSecurityTrustHtml(html)
+  }
 }
