@@ -30,6 +30,7 @@ import { NgSelect2Module } from 'ng-select2';
 import { PostComponent } from './settings/post/post.component';
 import { PostDetailComponent } from './settings/post/post-detail.component';
 import { BcmediatvDetailComponent } from './bcmediatv/bcmediatv-detail.component';
+import { NewsComponent } from './bcmediatv/news.component';
 import { QuillModule } from 'ngx-quill';
 
 @NgModule({
@@ -52,7 +53,8 @@ import { QuillModule } from 'ngx-quill';
     ModuleDetailComponent,
     PostComponent,
     PostDetailComponent,
-    BcmediatvDetailComponent
+    BcmediatvDetailComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,

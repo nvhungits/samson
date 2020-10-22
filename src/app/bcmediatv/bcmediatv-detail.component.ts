@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Menu } from '../services/menu';
 import { Post } from '../services/post';
 import { PostService }  from '../services/post.service';
 import { DomSanitizer} from '@angular/platform-browser';
-import {NgForm} from '@angular/forms';
 import { ActivatedRoute } from "@angular/router";
+import { PostTypeENUM } from './postTypeENUM';
 
 @Component({
   selector: 'app-bcmediatv',
@@ -18,6 +17,7 @@ export class BcmediatvDetailComponent implements OnInit {
   isLoading = true;
   postTitle = "";
   id: string;
+  parentLink: string;
 
   constructor(private postService: PostService, private sanitizer: DomSanitizer, private route: ActivatedRoute) { }
 
@@ -30,16 +30,21 @@ export class BcmediatvDetailComponent implements OnInit {
           this.postsDB.push(post);
           if(post.id.toString() == this.id){
             this.postDB = post;
-            this.postTitle = post.title;
+            this.postTitle = post.name;
+            this.parentLink = PostTypeENUM[post.type];
           }
         });
         this.isLoading = false;
-        //console.log("postsDB", this.postsDB, this.postDB);
+        //console.log("postsDB", this.postsDB, this.postDB, this.parentLink);
       },
       (err) => {
         console.log("ERROR", err);
       }
     );
+  }
+
+  byPassHTML(html: string) {
+    return this.sanitizer.bypassSecurityTrustHtml(html)
   }
 
 }

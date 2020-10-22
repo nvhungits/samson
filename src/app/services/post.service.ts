@@ -22,6 +22,15 @@ export class PostService {
     catchError(this.handleError));
   }
 
+  getBydId(id: string): any {
+    return this.http.get(environment.appUrl + "/api/post_search.php").pipe(
+      map((res) => {
+        this.posts = res['data'];
+        return this.posts;
+    }),
+    catchError(this.handleError));
+  }
+
   update(requestBody): Observable<any> {
     return this.http.put(
       environment.appUrl + "/api/update_post.php", 

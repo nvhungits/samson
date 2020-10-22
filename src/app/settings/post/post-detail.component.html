@@ -3,7 +3,12 @@
         <ul class="breadcrumb">
             <li><a href=".">Trang chủ</a></li>
             <li><a routerLink="/settings">Cài đặt</a></li>
-            <li class="active">Chi tiết '{{ (postTitle.length > 50) ? (postTitle | slice:0:50)+'..' : (postTitle) }}'</li>
+            <li class="active" *ngIf="id != 'new'">
+                Chi tiết '{{ (postTitle.length > 50) ? (postTitle | slice:0:50)+'..' : (postTitle) }}'
+            </li>
+            <li class="active" *ngIf="id == 'new'">
+                Tạo bài viết
+            </li>
         </ul>
         <div class="row margin-bottom-20">
             <!-- BEGIN CONTENT -->
@@ -23,7 +28,7 @@
 
                                         <img src="../../../assets/global/img/loading.gif" *ngIf="isLoading" style="padding-left: 48%;" />
                                         <form method="{{method}}" class="form-horizontal" #f="ngForm" (ngSubmit)="onSubmit(f)" *ngIf="postDB" novalidate>
-                                            <div class="form-group" *ngIf="postDB.id">
+                                            <div class="form-group" *ngIf="postDB.id" style="display: none;">
                                                 <label for="id" class="col-md-2 control-label">
                                                     ID
                                                 </label>
@@ -33,25 +38,31 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="title" class="col-md-2 control-label">
+                                                <label for="name" class="col-md-2 control-label">
                                                     Tiêu đề
                                                 </label>
                                                 <div class="col-md-10">
-                                                    <input name="title" [(ngModel)]="postDB.title"
+                                                    <input name="name" [(ngModel)]="postDB.name"
                                                         class="form-control" required />
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="description" class="col-md-2 control-label">
+                                                <label for="title" class="col-md-2 control-label">
                                                     Mô tả
                                                 </label>
                                                 <div class="col-md-10">
-                                                    <!-- <textarea name="description" style="height:300px" [(ngModel)]="postDB.description"
+                                                    <textarea name="title" style="height:100px" [(ngModel)]="postDB.title"
                                                         class="form-control" required>
-                                                    </textarea> -->
-                                                    
+                                                    </textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="description" class="col-md-2 control-label">
+                                                    Nội dung
+                                                </label>
+                                                <div class="col-md-10">
                                                     <quill-editor
-                                                        format="html"
+                                                        format="html" style="height:400px"
                                                         [(ngModel)]="postDB.description" [ngModelOptions]="{standalone: true}">
                                                     </quill-editor>
                                                 </div>
@@ -75,11 +86,33 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
+                                                <label for="type" class="col-md-2 control-label">
+                                                    Chuyên mục
+                                                </label>
+                                                <div class="col-md-4" *ngIf="menusDB.length > 0">
+                                                    <ng-select2 [data]="menusDB"
+                                                        [placeholder]="'Chọn menu chính'"
+                                                        [options]="optionsMenus"
+                                                        [(ngModel)]="postDB.type"
+                                                        [ngModelOptions]="{standalone: true}">
+                                                    </ng-select2>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
                                                 <label for="tags" class="col-md-2 control-label">
-                                                    Tags
+                                                    Keywords
                                                 </label>
                                                 <div class="col-md-10">
                                                     <input name="tags" [(ngModel)]="postDB.tags"
+                                                        class="form-control" required />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="image" class="col-md-2 control-label">
+                                                    Ảnh đại diện
+                                                </label>
+                                                <div class="col-md-10">
+                                                    <input name="image" type="file" [(ngModel)]="postDB.image"
                                                         class="form-control" required />
                                                 </div>
                                             </div>

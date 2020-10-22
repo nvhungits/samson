@@ -2,48 +2,20 @@
     <div class="container">
       <ul class="breadcrumb">
           <li><a href=".">Trang chủ</a></li>
-          <li><a routerLink="/bcmediatv">Bài viết</a></li>
+          <li><a routerLink="/{{parentLink}}">Bài viết</a></li>
           <li class="active">Chi tiết '{{ (postTitle.length > 50) ? (postTitle | slice:0:50)+'..' : (postTitle) }}'</li>
       </ul>
       <!-- BEGIN SIDEBAR & CONTENT -->
       <div class="row margin-bottom-40">
         <!-- BEGIN CONTENT -->
-        <div class="col-md-12 col-sm-12">
-          <h1>'{{ (postTitle.length > 50) ? (postTitle | slice:0:50)+'..' : (postTitle) }}'</h1>
+        <div class="col-md-12 col-sm-12" *ngIf="postDB">
+          <h1>{{postDB.title}}</h1>
           <div class="content-page">
             <div class="row">
               <!-- BEGIN LEFT SIDEBAR -->            
-              <div class="col-md-9 col-sm-9 blog-item" *ngIf="postDB">
-                <div class="blog-item-img">
-                  <!-- BEGIN CAROUSEL -->            
-                  <div class="front-carousel">
-                    <div id="myCarousel" class="carousel slide">
-                      <!-- Carousel items -->
-                      <div class="carousel-inner">
-                        <div class="item">
-                          <img src="../../assets/frontend/pages/img/posts/img1.jpg" alt="">
-                        </div>
-                        <div class="item">
-                          <!-- BEGIN VIDEO -->   
-                          <iframe src="http://player.vimeo.com/video/56974716?portrait=0" style="width:100%; border:0" allowfullscreen="" height="259"></iframe>
-                          <!-- END VIDEO -->   
-                        </div>
-                        <div class="item active">
-                          <img src="../../assets/frontend/pages/img/posts/img3.jpg" alt="">
-                        </div>
-                      </div>
-                      <!-- Carousel nav -->
-                      <a class="carousel-control left" href="#myCarousel" data-slide="prev">
-                        <i class="fa fa-angle-left"></i>
-                      </a>
-                      <a class="carousel-control right" href="#myCarousel" data-slide="next">
-                        <i class="fa fa-angle-right"></i>
-                      </a>
-                    </div>                
-                  </div>
-                  <!-- END CAROUSEL -->             
-                </div>
-                <div [innerHTML]="postDB.description"></div>
+              <div class="col-md-9 col-sm-9 blog-item">
+                
+                <div [innerHTML]="byPassHTML(postDB.description)"></div>
 
                 <hr />
                 <h2>Danh sách bình luận</h2>

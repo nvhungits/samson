@@ -9,11 +9,11 @@ import { PostTypeENUM } from './postTypeENUM';
   templateUrl: './bcmediatv.component.html',
   styleUrls: ['./bcmediatv.component.css']
 })
-export class BcmediatvComponent implements OnInit {
+export class NewsComponent implements OnInit {
 
   postsDB = new Array<Post>()
   isLoading = true;
-  typeId = "8";//TV Show
+  typeId = "7";//Tin Tuc
 
   constructor(private postService: PostService, private sanitizer: DomSanitizer) { }
 
@@ -27,7 +27,7 @@ export class BcmediatvComponent implements OnInit {
           }
         });
         this.isLoading = false;
-        //console.log("postsDB", this.postsDB);
+        //console.log("postsDB", this.postsDB, res);
       },
       (err) => {
         console.log("ERROR", err);

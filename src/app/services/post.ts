@@ -11,4 +11,6 @@ export class Post {
     description: string;
     tags: string;
     viewers: number;
+    name: string;
+    image: string;
 }
