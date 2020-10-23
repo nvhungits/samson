@@ -31,13 +31,18 @@
                 LOGO
             </label>
             <div class="col-md-4">
-                <input type="file" name="logo" />
+                <div>
+                    <input type="file" (change)="onFileChanged($event)">
+                </div>
+                <div>
+                    <input type="button" (click)="onUpload()" class="btn blue" value="Tải lên">
+                </div>
             </div>
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <button type="submit" class="btn blue">Lưu</button>
             </div>
-        </div>
+        </div> -->
     </form>
 </div>
