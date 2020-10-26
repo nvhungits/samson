@@ -2,7 +2,8 @@
     <div class="container">
         <ul class="breadcrumb">
             <li><a href=".">Trang chủ</a></li>
-            <li class="active">Cài đặt</li>
+            <li><a routerLink="/settings">Cài đặt</a></li>
+            <li class="active">quản lý Slider</li>
         </ul>
         <div class="row margin-bottom-20">
             <!-- BEGIN CONTENT -->
@@ -24,6 +25,83 @@
 
                         <div class="row ">
                             <div class="col-md-12">
+                                <div class="portlet box blue">
+                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            <i class="fa fa-home"></i>Mẫu 1
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body">
+                                        <img src="../../../assets/global/img/loading.gif" *ngIf="isLoading" style="padding-left: 48%;"  />
+                                        <form class="form-horizontal">
+                                            <div class="form-group">
+                                                <label for="slider1" class="col-md-2 control-label">
+                                                    Slider 1
+                                                </label>
+                                                <div class="col-md-6" id="slider1">
+                                                    <img [src]="slider1" width="400" alt="Slider" />
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div>
+                                                        <input type="file" (change)="onFileChanged($event,'slider1')">
+                                                        <input type="button" (click)="onUpload('SLIDER1')" class="btn blue" value="Tải lên">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <hr />
+
+                                            <div class="form-group">
+                                                <label for="slider2" class="col-md-2 control-label">
+                                                    Slider 2
+                                                </label>
+                                                <div class="col-md-6" id="slider2">
+                                                    <img [src]="slider2" width="400" alt="Slider" />
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div>
+                                                        <input type="file" (change)="onFileChanged($event,'slider2')">
+                                                        <input type="button" (click)="onUpload('SLIDER2')" class="btn blue" value="Tải lên">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <hr />
+
+                                            <div class="form-group">
+                                                <label for="slider3" class="col-md-2 control-label">
+                                                    Slider 3
+                                                </label>
+                                                <div class="col-md-6" id="slider3">
+                                                    <img [src]="slider3" width="400" alt="Slider" />
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div>
+                                                        <input type="file" (change)="onFileChanged($event,'slider3')">
+                                                        <input type="button" (click)="onUpload('SLIDER3')" class="btn blue" value="Tải lên">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <hr />
+
+                                            <div class="form-group">
+                                                <label for="slider4" class="col-md-2 control-label">
+                                                    Slider 4
+                                                </label>
+                                                <div class="col-md-6" id="slider4">
+                                                    <img [src]="slider4" width="400" alt="Slider" />
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div>
+                                                        <input type="file" (change)="onFileChanged($event,'slider4')">
+                                                        <input type="button" (click)="onUpload('SLIDER4')" class="btn blue" value="Tải lên">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

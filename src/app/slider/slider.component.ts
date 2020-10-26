@@ -17,6 +17,20 @@ export class SliderComponent implements OnInit {
     thumb: "//../../assets/frontend/pages/img/revolutionslider/thumbs/thumb2.jpg"
   }
   sliders = SLIDERS
+  slidersBD = [
+    {
+      bg: "https://bcmedia.vn/uploads/images/SLIDER1.jpg"
+    },
+    {
+      bg: "https://bcmedia.vn/uploads/images/SLIDER2.jpg"
+    },
+    {
+      bg: "https://bcmedia.vn/uploads/images/SLIDER3.jpg"
+    },
+    {
+      bg: "https://bcmedia.vn/uploads/images/SLIDER4.jpg"
+    }
+  ]
   constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
