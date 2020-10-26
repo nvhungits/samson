@@ -32,6 +32,7 @@ import { PostDetailComponent } from './settings/post/post-detail.component';
 import { BcmediatvDetailComponent } from './bcmediatv/bcmediatv-detail.component';
 import { NewsComponent } from './bcmediatv/news.component';
 import { QuillModule } from 'ngx-quill';
+import { SettingSlidersComponent } from './settings/setting-sliders/setting-sliders.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { QuillModule } from 'ngx-quill';
     PostComponent,
     PostDetailComponent,
     BcmediatvDetailComponent,
-    NewsComponent
+    NewsComponent,
+    SettingSlidersComponent
   ],
   imports: [
     BrowserModule,

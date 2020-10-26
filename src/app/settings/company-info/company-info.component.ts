@@ -14,8 +14,8 @@ export class CompanyInfoComponent implements OnInit {
   isLoading = true;
   constructor(private companyService: CompanyService, 
     private fileService: FileService) { }
-
   selectedFile: File;
+  logoURL = "https://bcmedia.vn/uploads/images/LOGO.jpg";
 
   ngOnInit(): void {
     this.companyService.getAll().subscribe(
@@ -36,6 +36,17 @@ export class CompanyInfoComponent implements OnInit {
       const file = event.target.files[0];
       this.selectedFile = file;
       //console.log(this.selectedFile);
+
+      // FileReader support
+      if (FileReader && file) {
+        var reader = new FileReader();
+        reader.readAsDataURL(file); // read file as data url
+        reader.onload = (event) => { // called once readAsDataURL is completed
+          var imgeLogo = document.getElementById("logoUrlSetting");
+          imgeLogo.innerHTML = "<img src='" + event.target.result + "'width='100' alt='BCMedia LOGO' />" ;
+        }
+      }
+
     }
   }
 

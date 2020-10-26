@@ -9,12 +9,14 @@ import { ModuleDetailComponent } from './settings/module/module-detail.component
 import { PostDetailComponent } from './settings/post/post-detail.component';
 import { BcmediatvDetailComponent } from './bcmediatv/bcmediatv-detail.component';
 import { NewsComponent } from './bcmediatv/news.component';
+import { SettingSlidersComponent } from './settings/setting-sliders/setting-sliders.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'settings', component: SettingsComponent},
   { path: 'settings/module/:id', component: ModuleDetailComponent},
   { path: 'settings/post/:id', component: PostDetailComponent},
+  { path: 'settings/slider', component: SettingSlidersComponent},
   { path: 'login', component: LoginComponent},
   { path: 'bcmediatv', component: BcmediatvComponent},
   { path: 'post/:id', component: BcmediatvDetailComponent},

@@ -30,6 +30,9 @@
             <label for="inputPassword12" class="col-md-2 control-label">
                 LOGO
             </label>
+            <div class="col-md-2" id="logoUrlSetting">
+                <img [src]="logoURL" width="100" alt="BCMedia LOGO" />
+            </div>
             <div class="col-md-4">
                 <div>
                     <input type="file" (change)="onFileChanged($event)">
