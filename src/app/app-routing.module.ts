@@ -10,6 +10,10 @@ import { PostDetailComponent } from './settings/post/post-detail.component';
 import { BcmediatvDetailComponent } from './bcmediatv/bcmediatv-detail.component';
 import { NewsComponent } from './bcmediatv/news.component';
 import { SettingSlidersComponent } from './settings/setting-sliders/setting-sliders.component';
+import { AboutUsComponent } from './bcmediatv/about-us.component';
+import { EventsComponent } from './bcmediatv/events.component';
+import { TeamBuildingsComponent } from './bcmediatv/teambuildings.component';
+import { PromotionsComponent } from './bcmediatv/promotion.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -19,8 +23,14 @@ const routes: Routes = [
   { path: 'settings/slider', component: SettingSlidersComponent},
   { path: 'login', component: LoginComponent},
   { path: 'bcmediatv', component: BcmediatvComponent},
+  { path: 'aboutus', component: AboutUsComponent},
   { path: 'post/:id', component: BcmediatvDetailComponent},
-  { path: 'news', component: NewsComponent}
+  { path: 'news', component: NewsComponent},
+  { path: 'events', component: EventsComponent},
+  { path: 'teambuidings', component: TeamBuildingsComponent},
+  { path: 'promotions', component: PromotionsComponent}
+
+
 ];
 
 @NgModule({

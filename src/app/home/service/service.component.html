@@ -1,7 +1,7 @@
-<div class="col-md-4 col-sm-4" *ngFor="let service of services">
+<div class="col-md-4 col-sm-4" *ngFor="let service of postsDB | slice:0:3">
     <div class="service-box-heading">
-        <em><i [ngClass]="['fa', service.icon]"></i></em>
+        <em><i [ngClass]="['fa', service.icon ? service.icon : 'fa-location-arrow blue']"></i></em>
         <span>{{service.title}}</span>
     </div>
-    <p>{{service.description}}</p>
+    <div [innerHTML]="service.description"></div>
 </div>

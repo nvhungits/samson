@@ -46,5 +46,6 @@ export class BcmediatvDetailComponent implements OnInit {
   byPassHTML(html: string) {
     return this.sanitizer.bypassSecurityTrustHtml(html)
   }
+  
 
 }

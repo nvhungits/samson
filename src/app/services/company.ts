@@ -5,4 +5,5 @@ export class Company {
     phone: string
     email: string
     name: string
+    description: string
 }

@@ -8,11 +8,11 @@ import { DomSanitizer} from '@angular/platform-browser';
   templateUrl: './bcmediatv.component.html',
   styleUrls: ['./bcmediatv.component.css']
 })
-export class NewsComponent implements OnInit {
+export class TeamBuildingsComponent implements OnInit {
 
   postsDB = new Array<Post>()
   isLoading = true;
-  typeId = "7";//Tin Tuc
+  typeId = "3102";//Team Building
 
   constructor(private postService: PostService, private sanitizer: DomSanitizer) { }
 

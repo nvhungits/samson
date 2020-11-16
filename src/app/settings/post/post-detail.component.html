@@ -112,8 +112,16 @@
                                                     Ảnh đại diện
                                                 </label>
                                                 <div class="col-md-10">
-                                                    <input name="image" type="file" [(ngModel)]="postDB.image"
-                                                        class="form-control" required />
+                                                    <!-- <input name="image" type="file" [(ngModel)]="postDB.image"
+                                                        class="form-control" required /> -->
+                                                    <div id="presentImage">
+                                                        <img width="200" [src]="postDB.image" />
+                                                    </div>
+
+                                                    <div>
+                                                        <input type="file" (change)="onFileChanged($event)">
+                                                    </div>
+
                                                 </div>
                                             </div>
                                             <div class="form-group">

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Post } from '../services/post';
 import { PostService }  from '../services/post.service';
 import { DomSanitizer} from '@angular/platform-browser';
-import { PostTypeENUM } from './postTypeENUM';
 
 @Component({
   selector: 'app-bcmediatv',
@@ -33,6 +32,14 @@ export class BcmediatvComponent implements OnInit {
         console.log("ERROR", err);
       }
     );
+  }
+
+  isVideo(url: string){
+    if(url && url != ""){
+      if(url.toString().indexOf("embed") > -1)
+        return true;
+    }
+    return false;
   }
 
 }

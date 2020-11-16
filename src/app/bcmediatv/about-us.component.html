@@ -2,52 +2,86 @@
     <div class="container">
       <ul class="breadcrumb">
           <li><a href=".">Trang chủ</a></li>
-          <li class="active">Bài viết</li>
+          <li class="active">Giới Thiệu</li>
       </ul>
       <!-- BEGIN SIDEBAR & CONTENT -->
       <div class="row margin-bottom-40">
         <!-- BEGIN CONTENT -->
         <div class="col-md-12 col-sm-12">
-          <h1 *ngIf="postsDB.length > 0">Bài viết được xem nhiều nhất</h1>
-          <h1 *ngIf="postsDB.length == 0">Chưa có bài viết mới</h1>
-          <img src="../../../assets/global/img/loading.gif" *ngIf="isLoading" style="padding-left: 30%;" />
+          <h1>Giới Thiệu Về BCMEDIA</h1>
           <div class="content-page">
             <div class="row">
               <!-- BEGIN LEFT SIDEBAR -->            
-              <div class="col-md-9 col-sm-9 blog-posts" *ngIf="postsDB">
-                <div *ngFor="let post of postsDB">
-                    <div class="row">
-                    <div class="col-md-4 col-sm-4">
+              <div class="col-md-9 col-sm-9 blog-item">
+                
+                <div [innerHTML]="byPassHTML(companyDB.description)"></div>
 
-                        <img src="../../../assets/global/img/Empty.png" 
-                          width="200" *ngIf="!post.image && !post.video_embed"/>
-
-                        <img [src]="post.image" alt="{{post.title}}" width="200"
-                          *ngIf="post.image != '' && !post.video_embed" style="height: 100% !important"/>
-                          
-                        <iframe height="205" style="width:100%; border:0"
-                            *ngIf="post.video_embed.indexOf('embed') > -1"
-                            [src]="sanitizer.bypassSecurityTrustResourceUrl(post.video_embed)" frameborder="0" allowfullscreen>
-                        </iframe>
+                <hr />
+                <h2>Danh sách bình luận</h2>
+                <div class="comments">
+                  <div class="media">                    
+                    <a href="javascript:;" class="pull-left">
+                    <img src="../../assets/frontend/pages/img/people/img1-small.jpg" alt="" class="media-object">
+                    </a>
+                    <div class="media-body">
+                      <!-- <h4 class="media-heading">Media heading <span>5 hours ago / <a href="javascript:;">Reply</a></span></h4>
+                      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p> -->
+                      <!-- Nested media object -->
+                      <!-- <div class="media">
+                        <a href="javascript:;" class="pull-left">
+                        <img src="../../assets/frontend/pages/img/people/img2-small.jpg" alt="" class="media-object">
+                        </a>
+                        <div class="media-body">
+                          <h4 class="media-heading">Media heading <span>17 hours ago / <a href="javascript:;">Reply</a></span></h4>
+                          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        </div>
+                      </div> -->
+                      <!--end media-->                      
+                      <!-- <div class="media">
+                        <a href="javascript:;" class="pull-left">
+                        <img src="../../assets/frontend/pages/img/people/img3-small.jpg" alt="" class="media-object">
+                        </a>
+                        <div class="media-body">
+                          <h4 class="media-heading">Media heading <span>2 days ago / <a href="javascript:;">Reply</a></span></h4>
+                          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        </div>
+                      </div> -->
+                      <!--end media-->
                     </div>
-                    <div class="col-md-8 col-sm-8">
-                        <h2><a routerLink="/post/{{post.id}}">{{post.title}}</a></h2>
-                        <ul class="blog-info">
-                        <li><i class="fa fa-calendar"></i> {{post.created}}</li>
-                        <li><i class="fa fa-comments"></i> {{post.viewers}}</li>
-                        <li><i class="fa fa-tags"></i>{{post.tags}}</li>
-                        </ul>
-                        <p [innerHTML]="post.description"></p>
-                        <a routerLink="/post/{{post.id}}" class="more">Đọc thêm <i class="fa fa-angle-right"></i></a>
+                  </div>
+                  <!--end media-->
+                  <!-- <div class="media">
+                    <a href="javascript:;" class="pull-left">
+                    <img src="../../assets/frontend/pages/img/people/img4-small.jpg" alt="" class="media-object">
+                    </a>
+                    <div class="media-body">
+                      <h4 class="media-heading">Media heading <span>July 25,2013 / <a href="javascript:;">Reply</a></span></h4>
+                      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
                     </div>
-                    </div>
-                    <hr class="blog-post-sep">
+                  </div> -->
+                  <!--end media-->
                 </div>
-                <ul class="pagination">
-                  <li><a href="javascript:;">Trước</a></li>
-                  <li class="active"><a href="javascript:;">{{postsDB.length}}</a></li>
-                  <li><a href="javascript:;">Sau</a></li>
-                </ul>               
+
+                <div class="post-comment padding-top-40">
+                  <h3>Bình luận</h3>
+                  <form role="form">
+                    <div class="form-group">
+                      <label>Tên</label>
+                      <input class="form-control" type="text">
+                    </div>
+
+                    <div class="form-group">
+                      <label>Email <span class="color-red">*</span></label>
+                      <input class="form-control" type="text">
+                    </div>
+
+                    <div class="form-group">
+                      <label>Lời bình luận</label>
+                      <textarea class="form-control" rows="8"></textarea>
+                    </div>
+                    <p><button class="btn btn-primary" type="submit">Xác nhận</button></p>
+                  </form>
+                </div>                      
               </div>
               <!-- END LEFT SIDEBAR -->
 
@@ -144,7 +178,7 @@
                 </div>
                 <!-- END BLOG TAGS -->
               </div>
-              <!-- END RIGHT SIDEBAR -->            
+              <!-- END RIGHT SIDEBAR -->          
             </div>
           </div>
         </div>

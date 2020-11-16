@@ -30,9 +30,16 @@ import { NgSelect2Module } from 'ng-select2';
 import { PostComponent } from './settings/post/post.component';
 import { PostDetailComponent } from './settings/post/post-detail.component';
 import { BcmediatvDetailComponent } from './bcmediatv/bcmediatv-detail.component';
+import { AboutUsComponent } from './bcmediatv/about-us.component';
 import { NewsComponent } from './bcmediatv/news.component';
+import { EventsComponent } from './bcmediatv/events.component';
+import { TeamBuildingsComponent } from './bcmediatv/teambuildings.component';
+import { PromotionsComponent } from './bcmediatv/promotion.component';
+
+
 import { QuillModule } from 'ngx-quill';
 import { SettingSlidersComponent } from './settings/setting-sliders/setting-sliders.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @NgModule({
   declarations: [
@@ -55,8 +62,12 @@ import { SettingSlidersComponent } from './settings/setting-sliders/setting-slid
     PostComponent,
     PostDetailComponent,
     BcmediatvDetailComponent,
+    AboutUsComponent,
     NewsComponent,
-    SettingSlidersComponent
+    SettingSlidersComponent,
+    EventsComponent,
+    TeamBuildingsComponent,
+    PromotionsComponent
   ],
   imports: [
     BrowserModule,
@@ -74,6 +85,7 @@ import { SettingSlidersComponent } from './settings/setting-sliders/setting-slid
         whitelist: ['mirza', 'roboto', 'aref', 'serif', 'sansserif', 'monospace']
       }]
     }),
+    CarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -37,6 +37,7 @@ export class PostDetailComponent implements OnInit {
   postTitle = "";
   isLoading = true;
   method = "put";
+  selectedFile: File;
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get("id");
@@ -45,7 +46,7 @@ export class PostDetailComponent implements OnInit {
       this.isLoading = false;
       this.postDB = {
         title: "",video_embed: "",video_url: "",viewers: 0,
-        description: "", type: "bcmediaTV",tags: "",created_by: "HN",
+        description: "", type: "8",tags: "",created_by: "HN",
         name: "", image: ""
       }
     }
@@ -80,7 +81,7 @@ export class PostDetailComponent implements OnInit {
           this.menusDB.push(menu);
         });
         this.isLoading = false;
-        console.log(this.menusDB);
+        //console.log(this.menusDB);
         this.optionsMenus = {
           width: '300',
           multiple: false,
@@ -91,28 +92,13 @@ export class PostDetailComponent implements OnInit {
         console.log("ERROR", err);
       }
     );
-
-    // this.postService.getBydId(this.id).subscribe(
-    //   (res: Post[]) => {
-    //     res.forEach(post => {
-    //       console.log("post", post);
-    //     });
-    //   },
-    //   (err) => {
-    //     console.log("ERROR", err);
-    //   }
-    // );
   }
 
   onSubmit(f: NgForm) {
-    //console.log(this.menuDB);
-    //console.log(f.valid);
-
     if(this.id != "new")
     {
       this.postService.update(this.postDB).subscribe(
         (res) => {
-          //console.log(res, this.postDB);
           alert("Cập nhập");
           location.reload();
         },
@@ -121,6 +107,7 @@ export class PostDetailComponent implements OnInit {
         }
       );
     }else{
+      //console.log(this.postDB);
       this.postService.create(this.postDB).subscribe(
         (res) => {
           console.log(res);
@@ -136,5 +123,26 @@ export class PostDetailComponent implements OnInit {
 
   byPassHTML(html: string) {
     return this.sanitizer.bypassSecurityTrustHtml(html)
+  }
+
+  //Gets called when the user selects an image
+  public onFileChanged(event) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.selectedFile = file;
+      //console.log(this.selectedFile);
+
+      // FileReader support
+      if (FileReader && file) {
+        var reader = new FileReader();
+        reader.readAsDataURL(file); // read file as data url
+        reader.onload = (event) => { // called once readAsDataURL is completed
+          var imgeLogo = document.getElementById("presentImage");
+          imgeLogo.innerHTML = "<img src='" + event.target.result + "'width='200' alt='BCMedia IMAGE' />" ;
+          this.postDB.image =  event.target.result.toString();
+        }
+      }
+
+    }
   }
 }

@@ -1,30 +1,32 @@
   <ul class="nav nav-tabs">
-    <li *ngFor="let category of categories; let i = index" [ngClass]="{'active': i === 0}">
+    <li *ngFor="let category of menusDB | slice:0:4; let i = index" [ngClass]="{'active': i === 0}">
         <a href="#tab-{{i+1}}" data-toggle="tab">{{category.name}}</a>
     </li>
   </ul>
-  <div class="tab-content">
+  <div class="tab-content" style="background: transparent !important">
     <div class="tab-pane fade in" id="tab-{{i+1}}" 
-        *ngFor="let category of categories; let i = index" 
+        *ngFor="let category of menusDB | slice:0:4; let i = index" 
         [ngClass]="{'active': i === 0, 'row': category.image}">
     
-        <div class="col-md-3 col-sm-3" *ngIf="category.image">
-            <a [href]="category.image" class="fancybox-button" title="{{category.name}}" data-rel="fancybox-button">
-            <img class="img-responsive" [src]="category.image" alt="">
+        <div class="col-md-3 col-sm-3" *ngIf="category.posts.length > 0">
+            <a [href]="category.posts[0].image" class="fancybox-button" 
+                title="{{category.posts[0].name}}" data-rel="fancybox-button">
+
+                <img class="img-responsive" *ngIf="category.posts[0].image" [src]="category.posts[0].image" alt="">
+
+                <img src="../../../assets/global/img/Empty.png" 
+                         class="img-responsive" *ngIf="!category.posts[0].image"/>
             </a>
         </div>
-        <div class="col-md-9 col-sm-9" *ngIf="category.image">
-            <p [ngClass]="{'margin-bottom-10': category.bottom}">{{ (category.description.length > 300) ? (category.description | slice:0:300)+'..' : (category.description) }}</p>
-            <p *ngIf="category.href"><a class="more" [href]="category.href">Xem thêm <i class="icon-angle-right"></i></a></p>
+        <div class="col-md-9 col-sm-9" *ngIf="category.posts.length > 0">
+            <p [ngClass]="{'margin-bottom-10': category.bottom}" [innerHTML]="category.posts[0].description"></p>
+            <p><a class="more" routerLink="/posts/{{category.posts[0].id}}">
+                Xem thêm <i class="icon-angle-right"></i></a></p>
         </div>
 
-        <!-- If tab no image -->
-        <p [ngClass]="{'margin-bottom-10': category.bottom}" *ngIf="!category.image">
-            {{ (category.description.length > 300) ? (category.description | slice:0:300)+'..' : (category.description) }}
-        </p>
-        <p *ngIf="!category.image && category.href">
-            <a class="more" href="javascript:;">Xem thêm <i class="icon-angle-right"></i></a>
-        </p>
+        <div class="col-md-9 col-sm-9" *ngIf="category.posts.length == 0">
+            <p [ngClass]="{'margin-bottom-10': category.bottom}">Chưa có bài viết nào</p>
+        </div>
 
     </div>
   </div>

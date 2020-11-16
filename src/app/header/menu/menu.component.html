@@ -1,7 +1,14 @@
 <li class="dropdown-submenu" *ngFor="let submenu of menu">
-    <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
+    <!-- <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
         {{submenu.name}}
         <i class="fa fa-angle-right" *ngIf="submenu.menus && submenu.menus.length > 0"></i>
+    </a> -->
+    <a class="dropdown-toggle" *ngIf="submenu.menus.length > 0" data-toggle="dropdown"  data-target="#" href="javascript:;">
+        {{submenu.name}}
+        <i class="fa fa-angle-right"></i>
+    </a>
+    <a class="dropdown-toggle" *ngIf="submenu.menus.length == 0" routerLink='{{submenu.url}}'>
+      {{submenu.name}}
     </a>
     <ul app-menu [menu]="submenu.menus" class="dropdown-menu" role="menu" *ngIf="submenu.menus && submenu.menus.length > 0"></ul>
 </li>
