@@ -8,9 +8,13 @@
       <div class="row margin-bottom-40">
         <!-- BEGIN CONTENT -->
         <div class="col-md-12 col-sm-12">
-          <h1 *ngIf="postsDB.length > 0">Bài viết được xem nhiều nhất</h1>
-          <h1 *ngIf="postsDB.length == 0">Chưa có bài viết mới</h1>
+
+          <h1 *ngIf="isLoading">Đang tải dữ liệu</h1>
           <img src="../../../assets/global/img/loading.gif" *ngIf="isLoading" style="padding-left: 30%;" />
+
+          <h1 *ngIf="postsDB.length > 0 && !isLoading">Bài viết được xem nhiều nhất</h1>
+          <h1 *ngIf="postsDB.length == 0 && !isLoading">Chưa có bài viết mới</h1>
+          
           <div class="content-page">
             <div class="row">
               <!-- BEGIN LEFT SIDEBAR -->            

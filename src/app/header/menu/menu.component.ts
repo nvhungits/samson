@@ -8,9 +8,15 @@ import { Component, OnInit, Input } from '@angular/core';
 export class MenuComponent implements OnInit {
 
   @Input() menu: object
+  @Input() parentUrl: string
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  ngOnChanges() {
+    // create header using child_id
+    //console.log(this.parentUrl);
   }
 
 }

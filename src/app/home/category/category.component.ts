@@ -47,7 +47,7 @@ export class CategoryComponent implements OnInit {
                 this.postsDB.push(post);
                 this.menusDB.forEach(menu => {
                     if(menu.id.toString() == post.type || this.childInSubMenu(menu, post)){
-                      console.log("Post", post);
+                      //console.log("Post", post);
                       menu.posts.push(post);
                     }
                 });

@@ -32,7 +32,7 @@ import { PostDetailComponent } from './settings/post/post-detail.component';
 import { BcmediatvDetailComponent } from './bcmediatv/bcmediatv-detail.component';
 import { AboutUsComponent } from './bcmediatv/about-us.component';
 import { NewsComponent } from './bcmediatv/news.component';
-import { EventsComponent } from './bcmediatv/events.component';
+import { SectorsComponent } from './bcmediatv/sectors.component';
 import { TeamBuildingsComponent } from './bcmediatv/teambuildings.component';
 import { PromotionsComponent } from './bcmediatv/promotion.component';
 
@@ -65,7 +65,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     AboutUsComponent,
     NewsComponent,
     SettingSlidersComponent,
-    EventsComponent,
+    SectorsComponent,
     TeamBuildingsComponent,
     PromotionsComponent
   ],

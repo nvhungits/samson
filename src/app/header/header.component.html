@@ -12,13 +12,10 @@
         </a>
       </li>
       <li *ngFor="let menu of menusDB" class="dropdown">
-        <a class="dropdown-toggle" *ngIf="menu.menus.length > 0" data-toggle="dropdown"  data-target="#" href="javascript:;">
-            {{menu.name}}
-        </a>
-        <a class="dropdown-toggle" *ngIf="menu.menus.length == 0" routerLink='{{menu.url}}'>
+        <a class="dropdown-toggle" routerLink='/{{menu.url}}'>
           {{menu.name}}
         </a>
-        <ul app-menu [menu]="menu.menus" class="dropdown-menu" role="menu"></ul>
+        <ul app-menu [menu]="menu.menus" [parentUrl]="menu.url" class="dropdown-menu" role="menu"></ul>
       </li>
       <!-- BEGIN TOP SEARCH -->
       <li class="menu-search">
