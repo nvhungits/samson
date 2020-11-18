@@ -40,6 +40,7 @@ import { PromotionsComponent } from './bcmediatv/promotion.component';
 import { QuillModule } from 'ngx-quill';
 import { SettingSlidersComponent } from './settings/setting-sliders/setting-sliders.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { SideBarComponent } from './bcmediatv/SubComponent/side-bar/side-bar.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     SettingSlidersComponent,
     SectorsComponent,
     TeamBuildingsComponent,
-    PromotionsComponent
+    PromotionsComponent,
+    SideBarComponent
   ],
   imports: [
     BrowserModule,

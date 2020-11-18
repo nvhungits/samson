@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer} from '@angular/platform-browser';
-import { ActivatedRoute } from "@angular/router";
+import { Router } from "@angular/router";
 import { Company } from '../services/company';
 import { CompanyService } from '../services/company.service';
-import { FileService } from '../services/file.service';
+import { Menu } from '../services/menu';
 
 @Component({
   selector: 'app-bcmediatv',
@@ -14,10 +14,13 @@ export class AboutUsComponent implements OnInit {
 
   companyDB: Company
   isLoading = true;
-  constructor(private companyService: CompanyService, 
-    private fileService: FileService,
-    private sanitizer: DomSanitizer) { }
-  selectedFile: File;
+  
+  constructor(
+    private companyService: CompanyService, 
+    private sanitizer: DomSanitizer) {
+      
+    }
+
 
   ngOnInit(): void {
     this.companyService.getAll().subscribe(
@@ -36,4 +39,5 @@ export class AboutUsComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustHtml(html)
   }
 
+  
 }
