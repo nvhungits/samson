@@ -42,8 +42,17 @@ export class PostService {
     catchError(this.handleError));
   }
 
+  delete(id: string): Observable<any> {
+    return this.http.delete(
+      environment.appUrl + "/api/delete_post.php?id=" + id,
+      {responseType: 'text'}).pipe(
+        map((res) => {
+          return true;
+      }),
+      catchError(this.handleError));
+  }
+
   create(requestBody): Observable<any> {
-    console.log("??");
     return this.http.post(
       environment.appUrl + "/api/create_post.php", 
       requestBody,

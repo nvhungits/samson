@@ -3,7 +3,8 @@ import { DomSanitizer} from '@angular/platform-browser';
 import { Router } from "@angular/router";
 import { Company } from '../services/company';
 import { CompanyService } from '../services/company.service';
-import { Menu } from '../services/menu';
+import { Post } from '../services/post';
+import { PostService } from '../services/post.service';
 
 @Component({
   selector: 'app-bcmediatv',
@@ -14,10 +15,13 @@ export class AboutUsComponent implements OnInit {
 
   companyDB: Company
   isLoading = true;
-  
+  typeId = "1000";
+  postDB: Post
+
   constructor(
     private companyService: CompanyService, 
-    private sanitizer: DomSanitizer) {
+    private sanitizer: DomSanitizer,
+    private postService: PostService) {
       
     }
 
@@ -26,8 +30,22 @@ export class AboutUsComponent implements OnInit {
     this.companyService.getAll().subscribe(
       (res: Company) => {
         this.companyDB = res[0];
-        this.isLoading = false;
         //console.log("Company", this.companyDB);
+      },
+      (err) => {
+        console.log("ERROR", err);
+      }
+    );
+
+    this.postService.getAll().subscribe(
+      (res: Post[]) => {
+        res.forEach(post => {
+          if(post.type == this.typeId){
+            this.postDB = post;
+          }
+        });
+        this.isLoading = false;
+        //console.log("postsDB", this.postsDB);
       },
       (err) => {
         console.log("ERROR", err);

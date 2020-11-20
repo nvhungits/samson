@@ -6,17 +6,21 @@
       </ul>
       <!-- BEGIN SIDEBAR & CONTENT -->
       <div class="row margin-bottom-40">
+        <img src="../../../assets/global/img/loading.gif" *ngIf="isLoading"  />
         <!-- BEGIN CONTENT -->
-        <div class="col-md-12 col-sm-12">
-          <h1>Giới Thiệu Về BCMEDIA</h1>
+        <div class="col-md-12 col-sm-12" *ngIf="postDB && !isLoading">
+          <h1>{{postDB.title}}</h1>
           <div class="content-page">
             <div class="row">
               <!-- BEGIN LEFT SIDEBAR -->            
               <div class="col-md-9 col-sm-9 blog-item">
                 
-                <div *ngIf="companyDB" [innerHTML]="byPassHTML(companyDB.description)"></div>
+                <div [innerHTML]="byPassHTML(postDB.description)"></div>
 
                 <hr />
+                <div><i class="fa fa-tags"></i>: {{postDB.tags}}</div>
+                <hr />
+
                 <h2>Danh sách bình luận</h2>
                 <div class="comments">
                   <div class="media">                    

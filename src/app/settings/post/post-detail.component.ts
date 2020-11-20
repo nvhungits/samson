@@ -110,7 +110,7 @@ export class PostDetailComponent implements OnInit {
       //console.log(this.postDB);
       this.postService.create(this.postDB).subscribe(
         (res) => {
-          console.log(res);
+          //console.log(res);
           alert("Tạo thành công");
           this.router.navigate(['/settings']);
         },
