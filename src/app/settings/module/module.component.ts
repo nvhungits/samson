@@ -11,12 +11,12 @@ import { Router} from '@angular/router';
 export class ModuleComponent implements OnInit {
 
   constructor(private headerService: HeaderService, private route: Router) { }
-  dtOptions: DataTables.Settings = {};
 
+  dtOptions: DataTables.Settings = {};
   menusDB = new Array<Menu>();
   isLoading = true;
+  
   ngOnInit(): void {
-
     this.headerService.getAll().subscribe(
       (res: Menu[]) => {
         res.forEach(menu => {

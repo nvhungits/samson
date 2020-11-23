@@ -36,7 +36,6 @@ export class HomeComponent implements OnInit {
         res.forEach(menu => {
           this.menusDB.push(menu);
         });
-        this.isLoading = false;
         //console.log(this.getNameMenuById(3));
         //console.log("Menus", this.menusDB);
         this.postService.getAll().subscribe(

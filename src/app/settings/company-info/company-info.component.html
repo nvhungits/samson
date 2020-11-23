@@ -5,47 +5,54 @@
 </div>
 <div class="portlet-body">
     <img src="../../../assets/global/img/loading.gif" *ngIf="isLoading" style="padding-left: 48%;"  />
+    
     <form class="form-horizontal" #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate *ngIf="companyDB">
-        <div class="form-group">
-            <label for="inputEmail1" class="col-md-2 control-label">
-                Email
-            </label>
-            <div class="col-md-4">
-                <input type="email" name="email" required
-                    class="form-control" [(ngModel)]="companyDB.email"
-                    placeholder="Nhập Email" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="inputPassword12" class="col-md-2 control-label">
-                Số điện thoại
-            </label>
-            <div class="col-md-4">
-                <input name="phone" [(ngModel)]="companyDB.phone"
-                    class="form-control" required
-                    placeholder="Nhập Số điện thoại" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="inputPassword12" class="col-md-2 control-label">
-                LOGO
-            </label>
-            <div class="col-md-2" id="logoUrlSetting">
-                <img [src]="logoURL" width="100" alt="BCMedia LOGO" />
-            </div>
-            <div class="col-md-4">
-                <div>
-                    <input type="file" (change)="onFileChanged($event)">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="inputEmail1" class="col-md-3 control-label">
+                        Email
+                    </label>
+                    <div class="col-md-7">
+                        <input type="email" name="email" required
+                            class="form-control" [(ngModel)]="companyDB.email"
+                            placeholder="Nhập Email" />
+                    </div>
                 </div>
-                <div>
-                    <input type="button" (click)="onUpload()" class="btn blue" value="Tải lên">
+                <div class="form-group">
+                    <label for="inputPassword12" class="col-md-3 control-label">
+                        Số điện thoại
+                    </label>
+                    <div class="col-md-7">
+                        <input name="phone" [(ngModel)]="companyDB.phone"
+                            class="form-control" required
+                            placeholder="Nhập Số điện thoại" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <button type="submit" class="btn blue">Lưu</button>
+                    </div>
+                </div>
+           </div>
+           <div class="col-md-6">
+                <div class="form-group">
+                    <label for="inputPassword12" class="col-md-3 control-label">
+                        LOGO
+                    </label>
+                    <div class="col-md-3" id="logoUrlSetting">
+                        <img [src]="logoURL" width="100" alt="BCMedia LOGO" />
+                    </div>
+                    <div class="col-md-5" style="overflow: hidden;">
+                        <div>
+                            <input type="file" (change)="onFileChanged($event)">
+                        </div>
+                        <div>
+                            <input type="button" (click)="onUpload()" class="btn blue" value="Tải lên">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <button type="submit" class="btn blue">Lưu</button>
-            </div>
-        </div> -->
     </form>
 </div>

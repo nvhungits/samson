@@ -13,70 +13,14 @@
       
         <!-- TESTIMONIALS -->
         <div class="col-md-5 testimonials-v1">
-          <div id="myCarousel" class="carousel slide">
-            <!-- Carousel items -->
-            <!-- <div class="carousel-inner">
-              <div class="active item">
-                <blockquote><p>Kinh nghiệm ăn uống</p></blockquote>
-                <div class="carousel-info">
-                  <img class="pull-left" src="../../assets/frontend/pages/img/people/img1-small.jpg" alt="">
-                  <div class="pull-left">
-                    <span class="testimonials-name">Bà A</span>
-                    <span class="testimonials-post">Nhân Viên</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <blockquote><p>Bật mí những kinh nghiệm ăn uống hữu ích nhất</p></blockquote>
-                <div class="carousel-info">
-                  <img class="pull-left" src="../../assets/frontend/pages/img/people/img5-small.jpg" alt="">
-                  <div class="pull-left">
-                    <span class="testimonials-name">Cô C</span>
-                    <span class="testimonials-post">Người Du lịch</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <blockquote><p>Những quán ăn ngon</p></blockquote>
-                <div class="carousel-info">
-                  <img class="pull-left" src="../../assets/frontend/pages/img/people/img2-small.jpg" alt="">
-                  <div class="pull-left">
-                    <span class="testimonials-name">Testing</span>
-                    <span class="testimonials-post">Người hướng dẫn du lịch</span>
-                  </div>
-                </div>
-              </div>
-            </div> -->
-  
-            <!-- Carousel nav -->
-            <!-- <a class="left-btn" href="#myCarousel" data-slide="prev"></a>
-            <a class="right-btn" href="#myCarousel" data-slide="next"></a> -->
-          </div>
+          <img src="../../../assets/global/img/loading.gif" *ngIf="isLoading" style="padding-left: 48%;"  />
 
-          <owl-carousel-o [options]="customOptions">
- 
-            <ng-container *ngFor="let item of postsDB">
+          <owl-carousel-o [options]="customOptions" *ngIf="postsDB">
+             <ng-container *ngFor="let item of postsDB">
               <ng-template carouselSlide>
                 <div class="slider">
                   <blockquote><p>{{item.type}}</p></blockquote>
                   <div class="carousel-info">
-
-                      <!-- <img class="pull-left" style="width: 75px !important;" 
-                      src="../../assets/frontend/pages/img/people/img2-small.jpg" alt=""> -->
-
-                      <!-- <img src="../../../assets/global/img/Empty.png" 
-                        style="width: 75px !important;"  *ngIf="!item.image && !item.video_embed"/>
-
-                      <img [src]="item.image" alt="{{item.title}}" 
-                        *ngIf="item.image != '' && !item.video_embed" style="width: 75px !important;" /> -->
-                          
-                      <!-- <iframe height="75" style="width:75px !important; border:0"
-                          *ngIf="item.video_embed.indexOf('embed') > -1"
-                          [src]="sanitizer.bypassSecurityTrustResourceUrl(item.video_embed)" frameborder="0" allowfullscreen>
-                      </iframe> -->
-
-
-
                       <div class="pull-left">
                         <a class="testimonials-name" style="font-size: 25px;" routerLink="/post/{{item.id}}">
                           {{item.title ? item.title : '(Trống)'}}
@@ -87,10 +31,7 @@
                 </div>
               </ng-template>
             </ng-container>
-         
           </owl-carousel-o>
-
-
         </div>
         <!-- END TESTIMONIALS -->
       </div>

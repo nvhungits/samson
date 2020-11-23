@@ -17,11 +17,12 @@
           </div>
         </div>
 
-        <img src="../../../assets/global/img/loading.gif" *ngIf="isLoading"  />
+        <img src="../../../assets/global/img/loading.gif" *ngIf="isLoading && menusDB.length == 0"  />
+
         <!-- Datatable -->
         <table id="dataTables-example" 
             class="table table-bordered table-sm row-border hover" 
-            datatable [dtOptions]="dtOptions" *ngIf="menusDB.length > 0">
+            datatable [dtOptions]="dtOptions" *ngIf="menusDB.length > 0 || !isLoading">
             <thead>
             <tr>
                 <th>Id</th>
