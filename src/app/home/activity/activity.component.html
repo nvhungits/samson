@@ -1,4 +1,4 @@
-<div class="recent-work-item" *ngFor="let activity of activities">
+<!-- <div class="recent-work-item" *ngFor="let activity of activities">
     <em>
         <img [src]="activity.image" alt="{{activity.title}}" class="img-responsive" style="height:200px">
         <a [href]="activity.href"><i class="fa fa-link"></i></a>
@@ -10,4 +10,28 @@
         <strong>{{ (activity.title.length > 10) ? (activity.title | slice:0:10)+'..' : (activity.title) }}</strong>
         <b>{{ (activity.description.length > 20) ? (activity.description | slice:0:20)+'..' : (activity.description) }}</b>
     </a>
-</div>
+</div> -->
+
+<owl-carousel-o [options]="customOptions" *ngIf="activities">
+    <ng-container *ngFor="let activity of activitiesDB">
+     <ng-template carouselSlide>
+       <div class="slider">
+         <div class="carousel-info">
+             <div class="pull-left recent-work-item">
+                <em>
+                  <img [src]="activity.image" alt="{{activity.title}}" class="img-responsive" style="height:200px">
+                  <a [href]="activity.href"><i class="fa fa-link"></i></a>
+                  <a [href]="activity.image" class="fancybox-button" title="{{activity.title}}" data-rel="fancybox-button">
+                      <i class="fa fa-search"></i>
+                  </a>
+                </em>
+                <a class="recent-work-description" href="javascript:;">
+                  <strong>{{ (activity.title.length > 10) ? (activity.title | slice:0:10)+'..' : (activity.title) }}</strong>
+                  <b>{{ (activity.description.length > 20) ? (activity.description | slice:0:20)+'..' : (activity.description) }}</b>
+                </a>
+             </div>
+         </div>
+       </div>
+     </ng-template>
+   </ng-container>
+ </owl-carousel-o>

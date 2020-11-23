@@ -18,8 +18,7 @@
       <img src="../../../assets/global/img/Empty.png" class="img-responsive" *ngIf="!post.image"/>
     </div>
     <div class="col-md-9 recent-news-inner">
-      <h3><a href="javascript:;">{{post.title.length > 50 ? (post.title.substr(0,50) +'..') : (post.title)}}</a></h3>
-      <p>{{post.tags}}</p>
+      <h3><a routerLink="/post/{{post.id}}">{{post.title.length > 50 ? (post.title.substr(0,50) +'..') : (post.title)}}</a></h3>
     </div>                        
   </div>
 </div>

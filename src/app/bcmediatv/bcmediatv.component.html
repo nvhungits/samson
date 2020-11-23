@@ -24,10 +24,10 @@
                     <div class="col-md-4 col-sm-4">
 
                         <img src="../../../assets/global/img/Empty.png" 
-                          width="200" *ngIf="!post.image && !post.video_embed"/>
+                          height="205" *ngIf="!post.image && !post.video_embed" style="width: 100% !important"/>
 
-                        <img [src]="post.image" alt="{{post.title}}" width="200"
-                          *ngIf="post.image != '' && !post.video_embed" style="height: 100% !important"/>
+                        <img [src]="post.image" alt="{{post.title}}" height="205"
+                          *ngIf="post.image != '' && !post.video_embed" style="width: 100% !important"/>
                           
                         <iframe height="205" style="width:100%; border:0"
                             *ngIf="post.video_embed.indexOf('embed') > -1"

@@ -25,6 +25,16 @@ export class HomeComponent implements OnInit {
     autoplayTimeout: 5000,
     dots: false
   }
+
+  activityOptions: OwlOptions = {
+    nav: true,
+    navText: [ 'Bài Trước', 'Bài Sau' ],
+    loop: true,
+    items: 3,
+    autoplay: true,
+    autoplayTimeout: 5000,
+    dots: false
+  }
   constructor(private postService: PostService, 
     private headerService: HeaderService, 
     private sanitizer: DomSanitizer) { }
