@@ -16,6 +16,7 @@ export class CompanyInfoComponent implements OnInit {
   selectedFile: File;
   logoURL = "https://bcmedia.vn/uploads/images/LOGO.jpg";
   BannerURL = "https://bcmedia.vn/uploads/images/BANNER.jpg";
+  BGURL = "https://bcmedia.vn/uploads/images/BACKGROUND.jpg";
 
   constructor(
     private companyService: CompanyService, 
@@ -28,8 +29,9 @@ export class CompanyInfoComponent implements OnInit {
     this.companyService.getAll().subscribe(
       (res: Company) => {
         this.companyDB = res[0];
+        this.companyDB.background_image = res[0].background_image === "1" ? true : false;
         this.isLoading = false;
-        console.log("Company", this.companyDB);
+        //console.log("Company", this.companyDB, res);
       },
       (err) => {
         console.log("ERROR", err);
@@ -38,7 +40,7 @@ export class CompanyInfoComponent implements OnInit {
   }
 
   public onSubmit(f: Form){
-    console.log(this.companyDB, f);
+    //console.log(this.companyDB, f);
     this.companyService.update(this.companyDB).subscribe(
       (res: any) => {
         alert("Cập nhập thành công");

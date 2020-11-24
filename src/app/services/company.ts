@@ -13,4 +13,5 @@ export class Company {
     step2_description: string
     step3_title: string
     step3_description: string
+    background_image: boolean
 }

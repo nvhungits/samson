@@ -38,6 +38,9 @@ export class HomeComponent implements OnInit {
     autoplayTimeout: 5000,
     dots: false
   }
+
+  bgImage = "https://bcmedia.vn/uploads/images/BACKGROUND.jpg"
+
   constructor(
     private companyService: CompanyService,
     private postService: PostService, 
@@ -50,6 +53,7 @@ export class HomeComponent implements OnInit {
     this.companyService.getAll().subscribe(
       (res: Company) => {
         this.companyDB = res[0];
+        this.companyDB.background_image = res[0].background_image === "1" ? true : false;
         //console.log("Company", this.companyDB);
       },
       (err) => {
@@ -88,6 +92,13 @@ export class HomeComponent implements OnInit {
   getNameMenuById(Id: string){
     var menus = this.menusDB.filter(x => x.id.toString() == Id);
     return menus[0] ? menus[0].name : "";
+  }
+
+  getBackground(){
+    if(this.companyDB && this.companyDB.background_image == true){
+      return "background-image: url('" + this.bgImage + "');background-position: center;background-size: contain;";
+    }
+    return "";
   }
 
 }
