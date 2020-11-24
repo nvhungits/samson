@@ -41,21 +41,16 @@
       <!-- END SERVICE BOX -->
   
       <!-- BEGIN BLOCKQUOTE BLOCK -->   
-      <div class="row quote-v1 margin-bottom-30">
-        <div class="col-md-9">
-          <span>Nghỉ dưỡng &amp; Du lịch &amp; Tham quan</span>
-        </div>
-        <div class="col-md-3 text-right">
-          <a class="btn-transparent" href="#" target="_blank"><i class="fa fa-rocket margin-right-10"></i>Tìm hiểu thêm</a>
-        </div>
+      <div class="row margin-bottom-30">
+        <img src="https://bcmedia.vn/uploads/images/BANNER.jpg" class="img-responsive" alt="">
       </div>
       <!-- END BLOCKQUOTE BLOCK -->
   
       <!-- BEGIN RECENT Activities -->
       <div class="row recent-work margin-bottom-40">
-        <div class="col-md-3">
-          <h2><a href="portfolio.html">Dự án</a></h2>
-          <p>VTV, HTV, VOV...</p>
+        <div class="col-md-3" *ngIf="companyDB">
+          <h2><a href="#">Dự án</a></h2>
+          <p>{{companyDB.project_description}}</p>
         </div>
         <div class="col-md-9">
           <div app-activity></div>
@@ -67,23 +62,23 @@
       <!-- END TABS AND TESTIMONIALS -->
   
       <!-- BEGIN STEPS -->
-      <div class="row margin-bottom-40 front-steps-wrapper front-steps-count-3">
+      <div class="row margin-bottom-40 front-steps-wrapper front-steps-count-3" *ngIf="companyDB">
         <div class="col-md-4 col-sm-4 front-step-col">
           <div class="front-step front-step1">
-            <h2>Mục tiêu</h2>
-            <p>Phát triển nền du lịch xứ thanh</p>
+            <h2>{{companyDB.step1_title}}</h2>
+            <p>{{companyDB.step1_description}}</p>
           </div>
         </div>
         <div class="col-md-4 col-sm-4 front-step-col">
           <div class="front-step front-step2">
-            <h2>Kế hoạch</h2>
-            <p>Phát triển dịch vụ truyền thông</p>
+            <h2>{{companyDB.step2_title}}</h2>
+            <p>{{companyDB.step2_description}}</p>
           </div>
         </div>
         <div class="col-md-4 col-sm-4 front-step-col">
           <div class="front-step front-step3">
-            <h2>Thực hiện</h2>
-            <p>Đang phát triển...</p>
+            <h2>{{companyDB.step3_title}}</h2>
+            <p>{{companyDB.step3_description}}</p>
           </div>
         </div>
       </div>

@@ -3,6 +3,7 @@ export class Activity {
 
     id?: number;
     title: string;
+    text?: string;
     description: string;
     image: string;
 }

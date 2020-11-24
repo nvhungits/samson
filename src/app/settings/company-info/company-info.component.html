@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="inputEmail1" class="col-md-3 control-label">
+                    <label for="inputEmail1" class="col-md-4 control-label">
                         Email
                     </label>
                     <div class="col-md-7">
@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputPassword12" class="col-md-3 control-label">
+                    <label for="inputPassword12" class="col-md-4 control-label">
                         Số điện thoại
                     </label>
                     <div class="col-md-7">
@@ -30,25 +30,110 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label for="description" class="col-md-4 control-label">
+                        Mô tả Của Dự Án
+                    </label>
+                    <div class="col-md-8">
+                        <textarea name="project_description" [(ngModel)]="companyDB.project_description"
+                            height="500"
+                            class="form-control" required></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="step1_title" class="col-md-4 control-label">
+                        Bước 1
+                    </label>
+                    <div class="col-md-8">
+                        <input name="step1_title" [(ngModel)]="companyDB.step1_title"
+                            class="form-control" required
+                            placeholder="Nhập Bước 1" />
+                    </div>
+                    <label for="step1_descriptioon" class="col-md-4 control-label">
+                        Mô tả Bước 1
+                    </label>
+                    <div class="col-md-8">
+                        <textarea name="step1_description" [(ngModel)]="companyDB.step1_description"
+                            class="form-control" required></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="step2_title" class="col-md-4 control-label">
+                        Bước 2
+                    </label>
+                    <div class="col-md-8">
+                        <input name="step2_title" [(ngModel)]="companyDB.step2_title"
+                            class="form-control" required
+                            placeholder="Nhập Bước 2" />
+                    </div>
+                    <label for="step2_descriptioon" class="col-md-4 control-label">
+                        Mô tả Bước 2
+                    </label>
+                    <div class="col-md-8">
+                        <textarea name="step2_description" [(ngModel)]="companyDB.step2_description"
+                            class="form-control" required></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="step3_title" class="col-md-4 control-label">
+                        Bước 3
+                    </label>
+                    <div class="col-md-8">
+                        <input name="step3_title" [(ngModel)]="companyDB.step3_title"
+                            class="form-control" required
+                            placeholder="Nhập Bước 3" />
+                    </div>
+                    <label for="step3_descriptioon" class="col-md-4 control-label">
+                        Mô tả Bước 3
+                    </label>
+                    <div class="col-md-8">
+                        <textarea name="step3_description" [(ngModel)]="companyDB.step3_description"
+                            class="form-control" required></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
                         <button type="submit" class="btn blue">Lưu</button>
                     </div>
                 </div>
            </div>
+        </div>
+        <hr />
+        <div class="row">
            <div class="col-md-6">
                 <div class="form-group">
-                    <label for="inputPassword12" class="col-md-3 control-label">
+                    <h3 class="col-md-12">
                         LOGO
-                    </label>
-                    <div class="col-md-3" id="logoUrlSetting">
+                    </h3>
+                    <div class="col-md-12" id="logoUrlSetting">
                         <img [src]="logoURL" width="100" alt="BCMedia LOGO" />
                     </div>
-                    <div class="col-md-5" style="overflow: hidden;">
+                    <div class="col-md-12" style="overflow: hidden;">
                         <div>
-                            <input type="file" (change)="onFileChanged($event)">
+                            <input type="file" (change)="onFileChanged($event,'logoUrlSetting')">
                         </div>
                         <div>
-                            <input type="button" (click)="onUpload()" class="btn blue" value="Tải lên">
+                            <input type="button" (click)="onUpload('LOGO.jpg')" class="btn blue" value="Tải lên">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+           <div class="col-md-12">
+                <div class="form-group">
+                    <h3 class="col-md-12">
+                        Banner
+                    </h3>
+                    <div class="col-md-12" id="BannerUrlSetting">
+                        <img [src]="BannerURL" style="max-height: 300px;" class="img-responsive" alt="BCMedia BANNER" />
+                    </div>
+                    <div class="col-md-12" style="overflow: hidden;">
+                        <div>
+                            <input type="file" (change)="onFileChanged($event,'BannerUrlSetting')">
+                        </div>
+                        <div>
+                            <input type="button" (click)="onUpload('BANNER.jpg')" class="btn blue" value="Tải lên">
                         </div>
                     </div>
                 </div>

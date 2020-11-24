@@ -1,0 +1,80 @@
+<div class="main">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a href=".">Trang chủ</a></li>
+            <li><a routerLink="/settings">Cài đặt</a></li>
+            <li class="active">Chi tiết '{{activityName}}'</li>
+        </ul>
+        <div class="row margin-bottom-20">
+            <!-- BEGIN CONTENT -->
+            <div class="col-md-12 col-sm-12">
+                <div class="content-page">
+                        <div class="row ">
+                            <div class="col-md-12">
+                                <div class="portlet box blue">
+
+                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            <i class="fa fa-home"></i>Thôn tin Module '{{activityName}}'
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body">
+                                        <img src="../../../assets/global/img/loading.gif" *ngIf="isLoading" style="padding-left: 48%;" />
+                                        <form class="form-horizontal" #f="ngForm" (ngSubmit)="onSubmit(f)"  *ngIf="activityDB" novalidate>
+                                            <div class="form-group">
+                                                <label for="id" class="col-md-2 control-label">
+                                                    ID
+                                                </label>
+                                                <div class="col-md-4">
+                                                    <input name="id" readonly
+                                                        class="form-control" [(ngModel)]="activityDB.id" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="title" class="col-md-2 control-label">
+                                                    Title
+                                                </label>
+                                                <div class="col-md-4">
+                                                    <input name="title" [(ngModel)]="activityDB.title"
+                                                        class="form-control" required />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="description" class="col-md-2 control-label">
+                                                    Mô tả
+                                                </label>
+                                                <div class="col-md-10">
+                                                    <textarea name="description" [(ngModel)]="activityDB.description"
+                                                        height="500"
+                                                        class="form-control" required></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="url" class="col-md-2 control-label">
+                                                    Ảnh đại diện
+                                                </label>
+                                                <div class="col-md-2" id="ActivityImageUrlSetting">
+                                                    <img [src]="activityDB.image" width="150" class="img-responsive" alt="BCMedia Activity Image" />
+                                                </div>
+                                                <div class="col-md-2" style="overflow: hidden;">
+                                                    <div>
+                                                        <input type="file" (change)="onFileChanged($event,'ActivityImageUrlSetting')">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-offset-2 col-md-10">
+                                                    <button type="submit" class="btn blue">Lưu</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END CONTENT -->
+        </div>
+    </div>
+</div>

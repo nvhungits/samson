@@ -6,4 +6,11 @@ export class Company {
     email: string
     name: string
     description: string
+    project_description: string
+    step1_title: string
+    step1_description: string
+    step2_title: string
+    step2_description: string
+    step3_title: string
+    step3_description: string
 }

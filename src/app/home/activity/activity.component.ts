@@ -36,7 +36,7 @@ export class ActivityComponent implements OnInit {
             this.activitiesDB.push(activitiy);
         });
         this.isLoading = false;
-        console.log("DB", this.activitiesDB, res);
+        //console.log("DB", this.activitiesDB, res);
       },
       (err) => {
         console.log("ERROR", err);

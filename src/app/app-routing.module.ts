@@ -14,11 +14,13 @@ import { AboutUsComponent } from './bcmediatv/about-us.component';
 import { SectorsComponent } from './bcmediatv/sectors.component';
 import { TeamBuildingsComponent } from './bcmediatv/teambuildings.component';
 import { PromotionsComponent } from './bcmediatv/promotion.component';
+import { ActivitySettingsDetailComponent } from './settings/activity/activity-detail.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'settings', component: SettingsComponent},
   { path: 'settings/module/:id', component: ModuleDetailComponent},
+  { path: 'settings/activity/:id', component: ActivitySettingsDetailComponent},
   { path: 'settings/post/:id', component: PostDetailComponent},
   { path: 'settings/slider', component: SettingSlidersComponent},
   { path: 'login', component: LoginComponent},

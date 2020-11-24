@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-//import { NgxMuiDatatablesModule } from 'ngx-mui-datatables';
 import {DataTablesModule} from 'angular-datatables';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -25,6 +24,8 @@ import { BcmediatvComponent } from './bcmediatv/bcmediatv.component';
 import { CompanyInfoComponent } from './settings/company-info/company-info.component';
 import { ModuleComponent } from './settings/module/module.component';
 import { ModuleDetailComponent } from './settings/module/module-detail.component';
+import { ActivitySettingsComponent } from './settings/activity/activity.component';
+import { ActivitySettingsDetailComponent } from './settings/activity/activity-detail.component';
 
 import { NgSelect2Module } from 'ng-select2';
 import { PostComponent } from './settings/post/post.component';
@@ -69,7 +70,9 @@ import { SideBarComponent } from './bcmediatv/SubComponent/side-bar/side-bar.com
     SectorsComponent,
     TeamBuildingsComponent,
     PromotionsComponent,
-    SideBarComponent
+    SideBarComponent,
+    ActivitySettingsComponent,
+    ActivitySettingsDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +81,6 @@ import { SideBarComponent } from './bcmediatv/SubComponent/side-bar/side-bar.com
     DragDropModule,
     HttpClientModule,
     FormsModule,
-    //NgxMuiDatatablesModule,
     DataTablesModule,
     NgSelect2Module,
     QuillModule.forRoot({

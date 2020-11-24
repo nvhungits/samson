@@ -5,6 +5,8 @@ import { Menu } from '../services/menu';
 import { Post } from '../services/post';
 import { PostService } from '../services/post.service';
 import { DomSanitizer} from '@angular/platform-browser';
+import { CompanyService } from '../services/company.service';
+import { Company } from '../services/company';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +16,7 @@ import { DomSanitizer} from '@angular/platform-browser';
 export class HomeComponent implements OnInit {
 
   menusDB = new Array<Menu>()
+  companyDB: Company
   postsDB = new Array<Post>()
   isLoading = true
   customOptions: OwlOptions = {
@@ -35,12 +38,24 @@ export class HomeComponent implements OnInit {
     autoplayTimeout: 5000,
     dots: false
   }
-  constructor(private postService: PostService, 
+  constructor(
+    private companyService: CompanyService,
+    private postService: PostService, 
     private headerService: HeaderService, 
     private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
 
+
+    this.companyService.getAll().subscribe(
+      (res: Company) => {
+        this.companyDB = res[0];
+        //console.log("Company", this.companyDB);
+      },
+      (err) => {
+        console.log("ERROR", err);
+    });
+    
     this.headerService.getAll().subscribe(
       (res: Menu[]) => {
         res.forEach(menu => {
