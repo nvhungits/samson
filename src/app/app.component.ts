@@ -13,8 +13,6 @@ export class AppComponent {
   constructor() { }
 
   ngOnInit(): void {
-    
-
 
     var token = localStorage.getItem('token_account');
     var login = localStorage.getItem('islogin');

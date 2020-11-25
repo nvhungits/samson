@@ -18,7 +18,6 @@ export class TopbarComponent implements OnInit {
     this.companyService.getAll().subscribe(
       (res: Company) => {
         this.companyDB = res[0];
-        //console.log("Company", this.companyDB);
       },
       (err) => {
         console.log("ERROR", err);

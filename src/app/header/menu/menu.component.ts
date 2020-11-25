@@ -13,10 +13,4 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  ngOnChanges() {
-    // create header using child_id
-    //console.log(this.parentUrl);
-  }
-
 }

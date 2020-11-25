@@ -23,7 +23,6 @@ export class HeaderComponent implements OnInit {
             this.menusDB.push(menu);
           }
         });
-        //console.log("Menus", this.menusDB);
       },
       (err) => {
         console.log("ERROR", err);
