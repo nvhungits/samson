@@ -42,6 +42,8 @@ import { QuillModule } from 'ngx-quill';
 import { SettingSlidersComponent } from './settings/setting-sliders/setting-sliders.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { SideBarComponent } from './bcmediatv/SubComponent/side-bar/side-bar.component';
+import { ThuvienComponent } from './thuvien/thuvien.component';
+import { ThuvienDetailComponent } from './thuvien/thuvien-detail/thuvien-detail.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +74,9 @@ import { SideBarComponent } from './bcmediatv/SubComponent/side-bar/side-bar.com
     PromotionsComponent,
     SideBarComponent,
     ActivitySettingsComponent,
-    ActivitySettingsDetailComponent
+    ActivitySettingsDetailComponent,
+    ThuvienComponent,
+    ThuvienDetailComponent
   ],
   imports: [
     BrowserModule,

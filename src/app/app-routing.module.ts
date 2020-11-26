@@ -15,6 +15,8 @@ import { SectorsComponent } from './bcmediatv/sectors.component';
 import { TeamBuildingsComponent } from './bcmediatv/teambuildings.component';
 import { PromotionsComponent } from './bcmediatv/promotion.component';
 import { ActivitySettingsDetailComponent } from './settings/activity/activity-detail.component';
+import { ThuvienComponent } from './thuvien/thuvien.component';
+import { ThuvienDetailComponent } from './thuvien/thuvien-detail/thuvien-detail.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -31,8 +33,9 @@ const routes: Routes = [
   { path: 'sectors', component: SectorsComponent},
   { path: 'sectors/:child_id', component: SectorsComponent},
   { path: 'teambuidings', component: TeamBuildingsComponent},
-  { path: 'promotions', component: PromotionsComponent}
-
+  { path: 'promotions', component: PromotionsComponent},
+  { path: 'thuvien', component: ThuvienComponent},
+  { path: 'thuvien/:id', component: ThuvienDetailComponent}
 
 ];
 
